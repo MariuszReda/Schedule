@@ -1,0 +1,66 @@
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\program.exe
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.csprojAssemblyReference.cache
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.Form1.resources
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.csproj.GenerateResource.cache
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.AssemblyInfoInputs.cache
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.AssemblyInfo.cs
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\program.deps.json
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\program.runtimeconfig.json
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\program.runtimeconfig.dev.json
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\program.dll
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\program.pdb
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\program\program\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.csproj.CoreCompileInputs.cache
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.csproj.CopyComplete
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.dll
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.pdb
+C:\Users\mariu\Desktop\program\program\obj\Debug\netcoreapp3.1\program.genruntimeconfig.cache
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.exe
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.deps.json
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.runtimeconfig.json
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.runtimeconfig.dev.json
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.pdb
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csprojAssemblyReference.cache
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.Form1.resources
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csproj.GenerateResource.cache
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.AssemblyInfoInputs.cache
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.AssemblyInfo.cs
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csproj.CoreCompileInputs.cache
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csproj.CopyComplete
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.dll
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.pdb
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.genruntimeconfig.cache
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.exe
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.deps.json
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.runtimeconfig.json
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.runtimeconfig.dev.json
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\program.pdb
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csprojAssemblyReference.cache
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.Form1.resources
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csproj.GenerateResource.cache
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.AssemblyInfoInputs.cache
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.AssemblyInfo.cs
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csproj.CoreCompileInputs.cache
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.csproj.CopyComplete
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.dll
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.pdb
+C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.genruntimeconfig.cache
