@@ -16,15 +16,16 @@ namespace program
         public Form1()
         {
             InitializeComponent();
+            this.ActiveControl = textBox1;
+            textBox1.Focus();
+            LoadList();
         }
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TEST;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
 
-        private void button1_Click(object sender, EventArgs e)                              //button1 ADD       "','" + "SELECT LastName From Emp" +    AND LastName LIKE   "WHERE Cus_Emp_ID = Emp_ID '" +
+        
+        private void button1_Click(object sender, EventArgs e)                              //button1 ADD
         {
-            //  if (listBox1.SelectedItems.Count > 0)
-            // {
-
             con.Open();
             cmd.CommandText = "INSERT INTO Cus (Godz,FirstName,LastName,Number,Comments,DataDay,Cus_Emp_ID) VALUES ('" + comboBox1.Text + "','" + textBox1.Text + "','"
                 + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox8.Text + "')";
@@ -32,7 +33,7 @@ namespace program
             con.Close();
             MessageBox.Show("INSERTED SUCCESS");
             clear();
-            //  }
+
         }
 
         void clear()
@@ -47,7 +48,7 @@ namespace program
         private void button2_Click(object sender, EventArgs e)                              //button2 VIEW
         {
 
-            string query = "SELECT * FROM Cus WHERE Cus_Emp_ID ='"+ textBox8.Text+ "'" ;         
+            string query = "SELECT * FROM Cus WHERE Cus_Emp_ID ='" + textBox8.Text+ "'" ;         
             SqlDataAdapter SDA = new SqlDataAdapter(query, con);
            DataTable dt = new DataTable();
             SDA.Fill(dt);
@@ -125,7 +126,7 @@ namespace program
         {
 
             groupBox3.Visible = true;
-
+            textBox6.Focus();
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
@@ -146,19 +147,17 @@ namespace program
             groupBox3.Visible = false;
             textBox6.Text = "";
             con.Close();
+            LoadList();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             groupBox4.Visible = true;
+            textBox7.Focus();
         }
 
         private void button9_Click(object sender, EventArgs e)                      // delete from res
         {
-            string text = listBox1.SelectedItem.ToString();
-
-            int i = listBox1.SelectedIndex;
-
             con.Open();
             string query = "DELETE FROM Emp WHERE LastName = '" + textBox7.Text + "'";
             SqlDataAdapter SDA = new SqlDataAdapter(query, con);
@@ -169,7 +168,7 @@ namespace program
 
             groupBox4.Visible = false;
             textBox7.Text = "";
-
+            LoadList();
         }
         
         public void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,7 +185,20 @@ namespace program
             }
             con.Close();
         }
+        public void LoadList()                                                      //metod load item on listbox
+        {
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "select * from Emp";
+            SqlDataReader dr = cmd.ExecuteReader();
+            listBox1.Items.Clear();
 
+            while (dr.Read())
+            {
+                listBox1.Items.Add(dr["LastName"]);
+            }
+            con.Close();
+        }
         private void button10_Click(object sender, EventArgs e)
         {
             con.Open();
@@ -206,5 +218,33 @@ namespace program
         {
 
         }
-    }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox2.Focus();
+            }
+
+
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox3.Focus();
+            }
+
+        }
+
+        private void textBox3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                textBox4.Focus();
+            }
+
+        }
+    }   
 }

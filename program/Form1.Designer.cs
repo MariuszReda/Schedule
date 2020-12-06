@@ -60,7 +60,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button9 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -85,6 +84,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(178, 27);
             this.textBox1.TabIndex = 1;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // textBox2
             // 
@@ -92,6 +92,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(178, 27);
             this.textBox2.TabIndex = 1;
+            this.textBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox2_KeyDown);
             // 
             // label2
             // 
@@ -108,6 +109,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(178, 27);
             this.textBox3.TabIndex = 1;
+            this.textBox3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox3_KeyDown);
             // 
             // label3
             // 
@@ -163,6 +165,7 @@
             this.label7.Size = new System.Drawing.Size(27, 20);
             this.label7.TabIndex = 7;
             this.label7.Text = "ID:";
+            this.label7.Visible = false;
             // 
             // ID
             // 
@@ -171,6 +174,7 @@
             this.ID.ReadOnly = true;
             this.ID.Size = new System.Drawing.Size(125, 27);
             this.ID.TabIndex = 6;
+            this.ID.Visible = false;
             // 
             // label5
             // 
@@ -386,7 +390,7 @@
             // 
             this.groupBox4.Controls.Add(this.button9);
             this.groupBox4.Controls.Add(this.textBox7);
-            this.groupBox4.Location = new System.Drawing.Point(681, 272);
+            this.groupBox4.Location = new System.Drawing.Point(754, 124);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(250, 125);
             this.groupBox4.TabIndex = 14;
@@ -411,22 +415,14 @@
             this.textBox7.Size = new System.Drawing.Size(189, 27);
             this.textBox7.TabIndex = 0;
             // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(1307, 499);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(94, 29);
-            this.button10.TabIndex = 15;
-            this.button10.Text = "Refresh";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(1254, 20);
             this.textBox8.Name = "textBox8";
+            this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(125, 27);
             this.textBox8.TabIndex = 16;
+            this.textBox8.Visible = false;
             // 
             // Form1
             // 
@@ -434,7 +430,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1479, 816);
             this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.listBox1);
@@ -495,7 +490,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox ID;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox8;
     }
