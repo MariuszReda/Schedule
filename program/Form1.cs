@@ -17,18 +17,22 @@ namespace program
         {
             InitializeComponent();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TEST;Integrated Security=True"); 
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=TEST;Integrated Security=True");
         SqlCommand cmd = new SqlCommand();
 
-        private void button1_Click(object sender, EventArgs e)                              //button1 ADD
-        {            
+        private void button1_Click(object sender, EventArgs e)                              //button1 ADD       "','" + "SELECT LastName From Emp" +    AND LastName LIKE   "WHERE Cus_Emp_ID = Emp_ID '" +
+        {
+            //  if (listBox1.SelectedItems.Count > 0)
+            // {
+
             con.Open();
-            cmd.CommandText = "INSERT INTO Cus (Godz,FirstName,LastName,Number,Comments,DataDay) VALUES ('" + comboBox1.Text+ "','" + textBox1.Text + "','" 
-                + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "')";
+            cmd.CommandText = "INSERT INTO Cus (Godz,FirstName,LastName,Number,Comments,DataDay,Cus_Emp_ID) VALUES ('" + comboBox1.Text + "','" + textBox1.Text + "','"
+                + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + textBox8.Text + "')";
             cmd.ExecuteNonQuery();
-             con.Close();
+            con.Close();
             MessageBox.Show("INSERTED SUCCESS");
             clear();
+            //  }
         }
 
         void clear()
@@ -42,12 +46,12 @@ namespace program
         }
         private void button2_Click(object sender, EventArgs e)                              //button2 VIEW
         {
-           
-            string query = "SELECT * FROM Cus";
-            SqlDataAdapter SDA = new SqlDataAdapter(query,con);
-            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM Cus WHERE Cus_Emp_ID ='"+ textBox8.Text+ "'" ;         
+            SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+           DataTable dt = new DataTable();
             SDA.Fill(dt);
-            dataGridView1.DataSource = dt;                
+            dataGridView1.DataSource = dt;
             con.Close();
             clear();
         }
@@ -60,11 +64,11 @@ namespace program
             textBox2.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             textBox3.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             textBox4.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-            monthCalendar1.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString(); 
-            
+            monthCalendar1.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+
         }
 
-        
+
         private void button3_Click(object sender, EventArgs e)                               //button3 EDIT
         {
             con.Open();
@@ -75,10 +79,10 @@ namespace program
             Refresh();
             con.Close();
             MessageBox.Show("UPDATE SUCCESS");
-            
+
         }
 
-        
+
         private void button4_Click(object sender, EventArgs e)                               //button4 DELETE
         {
             con.Open();
@@ -101,20 +105,20 @@ namespace program
             DataTable dt = new DataTable();
             SDA.Fill(dt);
             dataGridView1.DataSource = dt;
-            
+
         }
 
         private void button5_Click(object sender, EventArgs e)                  //button5 SEARCH
         {
             con.Open();
-            string query = "SELECT Cus_ID,Godz,FirstName,LastName,Number,Comments,DataDay FROM Cus WHERE FirstName LIKE '" + textBox1.Text + "%'"+
-                           " AND LastName LIKE '" + textBox2.Text + "%'" ; 
+            string query = "SELECT Cus_ID,Godz,FirstName,LastName,Number,Comments,DataDay FROM Cus WHERE FirstName LIKE '" + textBox1.Text + "%'" +
+                           " AND LastName LIKE '" + textBox2.Text + "%'";
             SqlDataAdapter SDA = new SqlDataAdapter(query, con);
             DataTable dt = new DataTable();
             SDA.Fill(dt);
             dataGridView1.DataSource = dt;
             con.Close();
-            
+
         }
 
         private void button6_Click(object sender, EventArgs e)                      //new pracownik
@@ -126,10 +130,10 @@ namespace program
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void button8_Click(object sender, EventArgs e)                      //add DB
+        private void button8_Click(object sender, EventArgs e)                      //add Emp
         {
             string query = "INSERT INTO Emp(LastName) VALUES ('" + textBox6.Text + "')";
             con.Open();
@@ -153,43 +157,54 @@ namespace program
         {
             string text = listBox1.SelectedItem.ToString();
 
-              int i = listBox1.SelectedIndex;
-            
-                    con.Open();
-                    string query = "DELETE FROM Emp WHERE LastName = '" + textBox7.Text + "'";
-                    SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-                    SDA.SelectCommand.ExecuteNonQuery();
-                    con.Close();
-                    MessageBox.Show("Record delete");
-                    textBox7.Text = "";
+            int i = listBox1.SelectedIndex;
+
+            con.Open();
+            string query = "DELETE FROM Emp WHERE LastName = '" + textBox7.Text + "'";
+            SqlDataAdapter SDA = new SqlDataAdapter(query, con);
+            SDA.SelectCommand.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Record delete");
+            textBox7.Text = "";
 
             groupBox4.Visible = false;
             textBox7.Text = "";
 
         }
-
+        
         public void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            con.Open();
+            cmd.Connection = con;
+            cmd.CommandText = "select * from Emp where LastName ='" + listBox1.Text + "'";
+            SqlDataReader dr = cmd.ExecuteReader();
             
-           
-        }
-       
-        void show()
-        {
-
+            while(dr.Read())
+            {
+                string id = dr.GetInt32("Emp_ID").ToString();
+                textBox8.Text = id;
+            }
+            con.Close();
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
             con.Open();
-            string query = "SELECT * FROM Emp";
-            SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-            SDA.SelectCommand.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SDA.Fill(dt);
-            listBox1.DisplayMember = "LastName";
-            listBox1.DataSource = dt;
+            cmd.Connection = con;
+            cmd.CommandText = "select * from Emp";
+            SqlDataReader dr = cmd.ExecuteReader();
+            listBox1.Items.Clear();
+
+            while (dr.Read())
+            {
+                listBox1.Items.Add(dr["LastName"]);
+            }
             con.Close();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

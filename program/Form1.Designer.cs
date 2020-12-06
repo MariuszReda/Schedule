@@ -37,6 +37,7 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -60,7 +61,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button10 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -153,6 +154,15 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klient info";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(75, 193);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 20);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "ID:";
             // 
             // ID
             // 
@@ -285,6 +295,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(800, 386);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.Text = "dataGridView1";
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // monthCalendar1
@@ -410,20 +421,19 @@
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // label7
+            // textBox8
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(75, 193);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "ID:";
+            this.textBox8.Location = new System.Drawing.Point(1254, 20);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(125, 27);
+            this.textBox8.TabIndex = 16;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1479, 816);
+            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -487,6 +497,7 @@
         private System.Windows.Forms.TextBox ID;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox8;
     }
 }
 
