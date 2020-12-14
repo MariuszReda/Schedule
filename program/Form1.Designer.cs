@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -70,12 +71,14 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Lime;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(12, 26);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(94, 29);
             this.button1.TabIndex = 0;
             this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
@@ -258,12 +261,14 @@
             // 
             // button4
             // 
+            this.button4.BackColor = System.Drawing.Color.Red;
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button4.Location = new System.Drawing.Point(112, 26);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(94, 29);
             this.button4.TabIndex = 3;
             this.button4.Text = "Usuń";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
@@ -278,12 +283,14 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Blue;
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(219, 26);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 1;
             this.button2.Text = "Wyświetl";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
@@ -296,10 +303,11 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 386);
+            this.dataGridView1.Size = new System.Drawing.Size(918, 395);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.Text = "dataGridView1";
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // monthCalendar1
@@ -327,7 +335,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1222, 53);
+            this.button6.Location = new System.Drawing.Point(1295, 47);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(94, 29);
             this.button6.TabIndex = 9;
@@ -337,7 +345,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(1322, 53);
+            this.button7.Location = new System.Drawing.Point(1468, 47);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(94, 29);
             this.button7.TabIndex = 10;
@@ -349,7 +357,7 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 20;
-            this.listBox1.Location = new System.Drawing.Point(1232, 89);
+            this.listBox1.Location = new System.Drawing.Point(1295, 80);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(299, 404);
             this.listBox1.TabIndex = 11;
@@ -422,13 +430,15 @@
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(125, 27);
             this.textBox8.TabIndex = 16;
-            this.textBox8.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1479, 816);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1575, 748);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);

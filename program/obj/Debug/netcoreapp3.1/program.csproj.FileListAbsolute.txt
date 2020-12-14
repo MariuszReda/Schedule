@@ -64,3 +64,4 @@ C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.
 C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.dll
 C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.pdb
 C:\Users\mariu\Desktop\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.genruntimeconfig.cache
+C:\Users\mariu\Desktop\projekt dla Kuby\Kopia 2x\program\program\obj\Debug\netcoreapp3.1\program.Properties.Resources.resources

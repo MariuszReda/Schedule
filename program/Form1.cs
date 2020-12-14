@@ -48,9 +48,10 @@ namespace program
         private void button2_Click(object sender, EventArgs e)                              //button2 VIEW
         {
 
-            string query = "SELECT * FROM Cus WHERE Cus_Emp_ID ='" + textBox8.Text+ "'" ;         
+            string query = "SELECT c.Godz, c.FirstName, c.LastName, c.Number, c.Comments, c.DataDay, e.LastName  FROM Cus As c, Emp As e WHERE c.Cus_Emp_ID = e.Emp_ID AND c.Cus_Emp_ID =  '"
+                + Convert.ToInt32( textBox8.Text) + "'";         
             SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-           DataTable dt = new DataTable();
+            DataTable dt = new DataTable();
             SDA.Fill(dt);
             dataGridView1.DataSource = dt;
             con.Close();
@@ -59,28 +60,26 @@ namespace program
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)        //function select     
         {
-            ID.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            textBox1.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            textBox4.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-            monthCalendar1.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-
+            comboBox1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            monthCalendar1.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();  
+            textBox5.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();    
         }
 
 
         private void button3_Click(object sender, EventArgs e)                               //button3 EDIT
         {
             con.Open();
-            string query = "UPDATE Cus SET Godz = '" + comboBox1.Text + "', FirstName= '" + textBox1.Text + "', LastName= '" + textBox2.Text + "', Number= '"
+            cmd.CommandText = "UPDATE Cus SET Godz = '" + comboBox1.Text + "', FirstName= '" + textBox1.Text + "', LastName= '" + textBox2.Text + "', Number= '"
                 + textBox3.Text + "', Comments= '" + textBox4.Text + "' WHERE Cus_ID = '" + ID.Text + "'";
-            SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-            SDA.SelectCommand.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();
             Refresh();
             con.Close();
             MessageBox.Show("UPDATE SUCCESS");
-
+            clear();
         }
 
 
@@ -92,6 +91,7 @@ namespace program
             SDA.SelectCommand.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Record delete");
+            clear();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -102,11 +102,11 @@ namespace program
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             this.textBox5.Text = e.Start.ToString("yyyy-MM-dd");
-            SqlDataAdapter SDA = new SqlDataAdapter("SELECT Cus_ID,Godz,FirstName,LastName,Number,Comments,DataDay FROM Cus WHERE DataDay LIKE '" + textBox5.Text + "%'", con);
+            SqlDataAdapter SDA = new SqlDataAdapter("SELECT c.Godz,c.FirstName,c.LastName,c.Number,c.Comments,c.DataDay,e.LastName FROM Cus As c,Emp As e WHERE c.Cus_Emp_ID = e.Emp_ID AND DataDay LIKE '" + textBox5.Text + "%'"
+                + " AND c.Cus_Emp_ID LIKE'" + textBox8.Text + "%'", con);
             DataTable dt = new DataTable();
             SDA.Fill(dt);
             dataGridView1.DataSource = dt;
-
         }
 
         private void button5_Click(object sender, EventArgs e)                  //button5 SEARCH
@@ -119,19 +119,17 @@ namespace program
             SDA.Fill(dt);
             dataGridView1.DataSource = dt;
             con.Close();
-
+            clear();
         }
 
         private void button6_Click(object sender, EventArgs e)                      //new pracownik
         {
-
             groupBox3.Visible = true;
             textBox6.Focus();
         }
 
         private void groupBox3_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void button8_Click(object sender, EventArgs e)                      //add Emp
@@ -158,10 +156,18 @@ namespace program
 
         private void button9_Click(object sender, EventArgs e)                      // delete from res
         {
-            con.Open();
-            string query = "DELETE FROM Emp WHERE LastName = '" + textBox7.Text + "'";
-            SqlDataAdapter SDA = new SqlDataAdapter(query, con);
-            SDA.SelectCommand.ExecuteNonQuery();
+            
+            con.Open(); 
+            cmd.Connection = con;
+            cmd.CommandText = "DELETE FROM Cus WHERE Cus_Emp_ID = '" + textBox8.Text + "'";      
+           // cmd.CommandText = "DELETE FORM Cus WHERE Emp.Emp_ID = Cus.Cus_Emp_ID ='" + textBox8.Text + "'";
+            cmd.ExecuteNonQuery();
+            
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "DELETE FROM Emp WHERE LastName = '" + textBox7.Text + "'";
+            cmd.ExecuteNonQuery();
+
             con.Close();
             MessageBox.Show("Record delete");
             textBox7.Text = "";
@@ -171,7 +177,7 @@ namespace program
             LoadList();
         }
         
-        public void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void listBox1_SelectedIndexChanged(object sender, EventArgs e)        //GetID_Emp from TextBox
         {
             con.Open();
             cmd.Connection = con;
@@ -185,21 +191,7 @@ namespace program
             }
             con.Close();
         }
-        public void LoadList()                                                      //metod load item on listbox
-        {
-            con.Open();
-            cmd.Connection = con;
-            cmd.CommandText = "select * from Emp";
-            SqlDataReader dr = cmd.ExecuteReader();
-            listBox1.Items.Clear();
-
-            while (dr.Read())
-            {
-                listBox1.Items.Add(dr["LastName"]);
-            }
-            con.Close();
-        }
-        private void button10_Click(object sender, EventArgs e)
+        public void LoadList()                                                      //method load item on listbox
         {
             con.Open();
             cmd.Connection = con;
@@ -216,7 +208,6 @@ namespace program
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
@@ -225,8 +216,6 @@ namespace program
             {
                 textBox2.Focus();
             }
-
-
         }
 
         private void textBox2_KeyDown(object sender, KeyEventArgs e)
@@ -235,7 +224,6 @@ namespace program
             {
                 textBox3.Focus();
             }
-
         }
 
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
@@ -244,7 +232,6 @@ namespace program
             {
                 textBox4.Focus();
             }
-
         }
     }   
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mariu\\Desktop\\Kopia 2x\\program\\program\\program.csproj": {}
+    "C:\\Users\\mariu\\Desktop\\projekt dla Kuby\\Kopia 2x\\program\\program\\program.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mariu\\Desktop\\Kopia 2x\\program\\program\\program.csproj": {
+    "C:\\Users\\mariu\\Desktop\\projekt dla Kuby\\Kopia 2x\\program\\program\\program.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mariu\\Desktop\\Kopia 2x\\program\\program\\program.csproj",
+        "projectUniqueName": "C:\\Users\\mariu\\Desktop\\projekt dla Kuby\\Kopia 2x\\program\\program\\program.csproj",
         "projectName": "program",
-        "projectPath": "C:\\Users\\mariu\\Desktop\\Kopia 2x\\program\\program\\program.csproj",
+        "projectPath": "C:\\Users\\mariu\\Desktop\\projekt dla Kuby\\Kopia 2x\\program\\program\\program.csproj",
         "packagesPath": "C:\\Users\\mariu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mariu\\Desktop\\Kopia 2x\\program\\program\\obj\\",
+        "outputPath": "C:\\Users\\mariu\\Desktop\\projekt dla Kuby\\Kopia 2x\\program\\program\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mariu\\AppData\\Roaming\\NuGet\\NuGet.Config",
