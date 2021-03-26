@@ -88,3 +88,4 @@ C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program
 C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.dll
 C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.pdb
 C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.genruntimeconfig.cache
+C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.Controll.resources
