@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4BuVzMiQZNiJLLpV3j4SzQtxiKzSEzcsnS8Uuimg31wK9rw5bgO8D+lUhhy4UUuH8o6T5BDBdZhX/NsUtnem4w==",
+  "dgSpecHash": "bhFFJ4ky28BeuOxNixLN+aI9qpfENraZo4uYVLUpSyaOvSJHGLvlCm4Co2rHAbLEyS/1LhVTl8Fqspwy3zq37g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mariu\\Desktop\\projekt dla Kuby\\Kopia 2x\\program\\program\\program.csproj",
+  "projectFilePath": "C:\\Users\\mariu\\Documents\\GitHub\\Schedule\\program\\program.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mariu\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\mariu\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
