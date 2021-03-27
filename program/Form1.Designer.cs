@@ -312,7 +312,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(34, 352);
+            this.monthCalendar1.Location = new System.Drawing.Point(25, 454);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 6;
             this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
@@ -438,7 +438,7 @@
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1575, 748);
+            this.ClientSize = new System.Drawing.Size(1575, 769);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);

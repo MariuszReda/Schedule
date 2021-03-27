@@ -130,6 +130,15 @@
             "rid": "win"
           }
         }
+      },
+      "EDGProject/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/EDGProject.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/EDGProject.dll": {}
+        }
       }
     }
   },
@@ -446,10 +455,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "EDGProject/1.0.0": {
+      "type": "project",
+      "path": "../../../../Desktop/Studia semestr4/Laborki/Jipp/Lab3/EDGProject/EDGProject/EDGProject.csproj",
+      "msbuildProject": "../../../../Desktop/Studia semestr4/Laborki/Jipp/Lab3/EDGProject/EDGProject/EDGProject.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "EDGProject >= 1.0.0",
       "System.Data.SqlClient >= 4.8.2"
     ]
   },
@@ -479,7 +494,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\mariu\\Desktop\\Studia semestr4\\Laborki\\Jipp\\Lab3\\EDGProject\\EDGProject\\EDGProject.csproj": {
+              "projectPath": "C:\\Users\\mariu\\Desktop\\Studia semestr4\\Laborki\\Jipp\\Lab3\\EDGProject\\EDGProject\\EDGProject.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

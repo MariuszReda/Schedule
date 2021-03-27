@@ -88,4 +88,7 @@ C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program
 C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.dll
 C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.pdb
 C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.genruntimeconfig.cache
-C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.Controll.resources
+C:\Users\mariu\Documents\GitHub\Schedule\program\obj\Debug\netcoreapp3.1\program.MDI.resources
+C:\Users\mariu\Documents\GitHub\Schedule\program\bin\Debug\netcoreapp3.1\EDGProject.exe
+C:\Users\mariu\Documents\GitHub\Schedule\program\bin\Debug\netcoreapp3.1\EDGProject.pdb
+C:\Users\mariu\Documents\GitHub\Schedule\program\bin\Debug\netcoreapp3.1\EDGProject.exe.config
