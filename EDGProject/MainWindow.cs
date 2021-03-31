@@ -38,29 +38,29 @@ namespace EDGProject
         /// Method load list in to treeView;
         /// </summary>
         public void LoadEmp()
-        {
+        {            
             DBiConnect dBi = new DBiConnect();
             Emplo_treeView.Nodes.Clear();
-            Emplo_treeView.Nodes.Add("Pracownicy");
             foreach (Emplo item in dBi.GetAllEmployees())
             {
-                //string person = item.Name + " " + item.Surname; //<= NAPRAW
-                string person = item.EmployeeID.ToString();
-                Emplo_treeView.Nodes[0].Nodes.Add(person);
+                int x = item.EmployeeID;    //ref to ID in database
+                string person = item.Name + " " + item.Surname;
+                Emplo_treeView.Nodes.Add(x.ToString(),person);
                 emplos.Add(item);   //add to list Emplo all object Emplo
             }
         }
 
         private void Emplo_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
+            TreeNode node = e.Node;
+            //MessageBox.Show(node.Name );           
         }
 
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Emplo emplo = new Emplo();
-           
-            int x = int.Parse(Emplo_treeView.SelectedNode.Text);
+
+            int x = int.Parse(Emplo_treeView.SelectedNode.Name); // Name is key where key is ID value in database
             DBiConnect connect = new DBiConnect();
             emplo = connect.GetEmplo(x);
             connect.Delete(emplo);
@@ -94,7 +94,7 @@ namespace EDGProject
         /// <param name="e"></param>
         private void EditToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int x = int.Parse(Emplo_treeView.SelectedNode.Text);
+            int x = int.Parse(Emplo_treeView.SelectedNode.Name); // Name is key where key is ID value in database
             DBiConnect connect = new DBiConnect();
             Emplo emplo = connect.GetEmplo(x);
             AddEmployee form = new AddEmployee(emplo);
