@@ -11,9 +11,11 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
-    public partial class MianWindow : Form
+    public partial class MainWindow : Form
     {
-        public MianWindow()
+        List<Emplo> emplos = new List<Emplo>();
+
+        public MainWindow()
         {
             InitializeComponent();
             LoadEmp();
@@ -24,21 +26,14 @@ namespace EDGProject
             Close();
         }
 
-        private void nowyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            DocumentWindow window = new DocumentWindow();
-            window.MdiParent = this;
-            window.Show();
-        }
-
         private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddEmployee form = new AddEmployee();
+            form.StartPosition = FormStartPosition.CenterParent; // set location new window
             form.ShowDialog();
             LoadEmp();
         }
-        List<Emplo> emplos = new List<Emplo>();
-
+       
         /// <summary>
         /// Method load list in to treeView;
         /// </summary>
@@ -49,7 +44,7 @@ namespace EDGProject
             Emplo_treeView.Nodes.Add("Pracownicy");
             foreach (Emplo item in dBi.GetAllEmployees())
             {
-                //string person = item.Name + " " + item.Surname; <= NAPRAW
+                //string person = item.Name + " " + item.Surname; //<= NAPRAW
                 string person = item.EmployeeID.ToString();
                 Emplo_treeView.Nodes[0].Nodes.Add(person);
                 emplos.Add(item);   //add to list Emplo all object Emplo
@@ -59,33 +54,8 @@ namespace EDGProject
         private void Emplo_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
 
-            //switch ((e.Action))
-            //{
-            //    case TreeViewAction.ByKeyboard:
-            //        MessageBox.Show("You like the keyboard!");
-            //        break;
-            //    case TreeViewAction.ByMouse:
-
-            //        MessageBox.Show("You like the mouse!");
-            //        break;
-            //}
-
-            /*
-            Car mycar1 = new Car("my car name", "my car brand", 1999);
-            TreeViewItem node = new TreeViewItem() { Header = mycar1.car_name};
-            node.Items.Add(new TreeViewItem() { Header = mycar1.car_brand });
-            node.Items.Add(new TreeViewItem() { Header = mycar1.car_year });
-            myTree.Items.Add(node);
-            */
         }
 
-        //private void mauseClick(object sender, MouseEventArgs e)
-        //{
-        //    if (e.Button == System.Windows.Forms.MouseButtons.Right)
-        //    {
-        //        contextMenuStrip1.Show(Cursor.Position);
-        //    }
-        //}
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Emplo emplo = new Emplo();
@@ -97,22 +67,41 @@ namespace EDGProject
             LoadEmp();
         }
 
-        private void fffToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int x = int.Parse(Emplo_treeView.SelectedNode.Text);
-            DBiConnect connect = new DBiConnect();
-            Emplo emplo = connect.GetEmplo(1);
-            AddEmployee form = new AddEmployee(emplo);
-            form.ShowDialog();
-        }
-
-        private void mauseClick(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Event for Right ClickMause
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mauseClick(object sender, MouseEventArgs e)    
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
+
+        private void Emplo_treeView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            DocumentWindow window = new DocumentWindow();
+            window.MdiParent = this;    //show new window like MDI
+            window.Show();
+        }
+
+        /// <summary>
+        /// Edit after right click on treeVew
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EditToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int x = int.Parse(Emplo_treeView.SelectedNode.Text);
+            DBiConnect connect = new DBiConnect();
+            Emplo emplo = connect.GetEmplo(x);
+            AddEmployee form = new AddEmployee(emplo);
+            form.StartPosition = FormStartPosition.CenterParent;
+            form.ShowDialog();
+        }
+
     }
 }
 

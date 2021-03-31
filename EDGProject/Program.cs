@@ -16,7 +16,7 @@ namespace EDGProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MianWindow());
+            Application.Run(new MainWindow());
         }
     }
 }

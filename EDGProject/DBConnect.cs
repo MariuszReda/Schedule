@@ -14,7 +14,6 @@ namespace EDGProject
         void Add(Emplo person);
         void Delete(Emplo person);
         void Edit(Emplo person);
-
     }
 
 
@@ -62,7 +61,16 @@ namespace EDGProject
 
         public void Edit(Emplo person)
         {
-            throw new NotImplementedException();
+            using(var con = new SqlConnection(connection))
+            {
+                con.Open();
+                query = "UPDATE Employees SET FirstName = '" 
+                    + person.Name + "', LastName = '" + person.Surname + "'  WHERE EmplyeeID ='" + person.EmployeeID + "'";
+                var cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            MessageBox.Show("Edycja zakończona");
         }
 
         /// <summary>
@@ -116,8 +124,7 @@ namespace EDGProject
         public Emplo GetEmplo(int ID_Emp)
         {
             using (var con = new SqlConnection(connection))
-            {
-                
+            {               
                 con.Open();
                 query = "SELECT * FROM Employees WHERE EmplyeeID = '" + ID_Emp + "'";
                 using (var cmd = new SqlCommand(query, con))
