@@ -52,8 +52,7 @@ namespace EDGProject
 
         private void Emplo_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNode node = e.Node;
-            //MessageBox.Show(node.Name );           
+            TreeNode node = e.Node; // get name after select        
         }
 
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -82,7 +81,9 @@ namespace EDGProject
 
         private void Emplo_treeView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            DocumentWindow window = new DocumentWindow();
+            string x = Emplo_treeView.SelectedNode.Name; // set ID record DataBase
+            DocumentWindow window = new DocumentWindow(int.Parse(x));
+            window.Text = Emplo_treeView.SelectedNode.Text; //set Name new form
             window.MdiParent = this;    //show new window like MDI
             window.Show();
         }
@@ -100,8 +101,8 @@ namespace EDGProject
             AddEmployee form = new AddEmployee(emplo);
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
+            LoadEmp();
         }
-
     }
 }
 

@@ -30,6 +30,9 @@ namespace EDGProject
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.Add_button1 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,9 +43,6 @@ namespace EDGProject
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.Add_button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,6 +67,35 @@ namespace EDGProject
             this.groupBox1.Size = new System.Drawing.Size(278, 491);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(73, 147);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Strzyżenie",
+            "Broda",
+            "Strzyżenie + Broda"});
+            this.comboBox1.Location = new System.Drawing.Point(73, 91);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(199, 24);
+            this.comboBox1.TabIndex = 13;
+            // 
+            // Add_button1
+            // 
+            this.Add_button1.Location = new System.Drawing.Point(3, 187);
+            this.Add_button1.Name = "Add_button1";
+            this.Add_button1.Size = new System.Drawing.Size(272, 38);
+            this.Add_button1.TabIndex = 12;
+            this.Add_button1.Text = "Dodaj";
+            this.Add_button1.UseVisualStyleBackColor = true;
+            this.Add_button1.Click += new System.EventHandler(this.Add_button1_Click);
             // 
             // textBox6
             // 
@@ -149,34 +178,6 @@ namespace EDGProject
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(199, 22);
             this.textBox3.TabIndex = 2;
-            // 
-            // Add_button1
-            // 
-            this.Add_button1.Location = new System.Drawing.Point(3, 187);
-            this.Add_button1.Name = "Add_button1";
-            this.Add_button1.Size = new System.Drawing.Size(272, 38);
-            this.Add_button1.TabIndex = 12;
-            this.Add_button1.Text = "Dodaj";
-            this.Add_button1.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Strzyżenie",
-            "Broda",
-            "Strzyżenie + Broda"});
-            this.comboBox1.Location = new System.Drawing.Point(73, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 24);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(73, 147);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 14;
             // 
             // FormAddClient
             // 

@@ -42,9 +42,12 @@ namespace EDGProject
             {
                 DBiConnect connect = new DBiConnect();
                 connect.Edit(new Emplo(int.Parse(textBox3.Text), textBox1.Text, textBox2.Text));
+                this.Close();
             }
             else
                 MessageBox.Show("Uzupełnij dane","Warning",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
         }
+
     }
 }

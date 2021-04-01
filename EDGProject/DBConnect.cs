@@ -26,7 +26,7 @@ namespace EDGProject
         private string query;
 
         /// <summary>
-        /// method Add new object Emplo to DB
+        /// method Add Employees in DB
         /// </summary>
         /// <param name="person"></param>
         public void Add(Emplo person)
@@ -43,7 +43,7 @@ namespace EDGProject
         }
 
         /// <summary>
-        /// method Delete object from DB 
+        /// method Delete Employees in DB
         /// </summary>
         /// <param name="person"></param>
         public void Delete(Emplo person)
@@ -58,7 +58,11 @@ namespace EDGProject
             }
             MessageBox.Show("Usuwanie zakończone");
         }
-
+        
+        /// <summary>
+        /// method Edit Employees in DB
+        /// </summary>
+        /// <param name="person"></param>
         public void Edit(Emplo person)
         {
             using(var con = new SqlConnection(connection))
@@ -98,6 +102,11 @@ namespace EDGProject
             }
         }
 
+        /// <summary>
+        /// Return object Employee
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
         public Emplo GetEmplo(Emplo person)
         {
             using (var con = new SqlConnection(connection))

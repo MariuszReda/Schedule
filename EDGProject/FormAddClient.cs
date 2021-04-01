@@ -16,5 +16,10 @@ namespace EDGProject
         {
             InitializeComponent();
         }
+
+        private void Add_button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
