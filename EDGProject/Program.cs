@@ -9,7 +9,7 @@ namespace EDGProject
     static class Program
     {
         /// <summary>
-        /// Główny punkt wejścia dla aplikacji.
+        /// Main input aplication
         /// </summary>
         [STAThread]
         static void Main()

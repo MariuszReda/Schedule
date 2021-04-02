@@ -12,5 +12,8 @@ namespace EDGProject
         public string CustName { get; set; }
         public string CustSurname { get; set; }
         public string CustPhone { get; set; }
+        public int CustUsluga { get; set; }
+        public string CustGodzin { get; set; }
+        public DateTime CustDate { get; set; }
     }
 }

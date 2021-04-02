@@ -52,7 +52,8 @@ namespace EDGProject
 
         private void Emplo_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            TreeNode node = e.Node; // get name after select        
+           // TreeNode node = e.Node; // get name after select
+            
         }
 
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -76,6 +77,7 @@ namespace EDGProject
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
                 contextMenuStrip1.Show(Cursor.Position);
+                sender = Emplo_treeView.SelectedNode.IsSelected;
             }
         }
 

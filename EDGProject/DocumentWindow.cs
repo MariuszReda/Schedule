@@ -23,7 +23,7 @@ namespace EDGProject
         {
             InitializeComponent();
             ID = x;
-            View();
+            View(ID);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -43,7 +43,9 @@ namespace EDGProject
 
         private void Add_button1_Click(object sender, EventArgs e)
         {
-            FormAddClient form = new FormAddClient();
+            
+            FormAddClient form = new FormAddClient(ID);
+            form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
         }
 
@@ -63,16 +65,15 @@ namespace EDGProject
             textBox1.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
             textBox2.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
             textBox3.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            // textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            // textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            // monthCalendar1.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-            // textBox5.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+            textBox4.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            textBox6.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            textBox5.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
         }
 
-        private void View()
+        private void View(int x)
         {
             ConnectCustomer connect = new ConnectCustomer();
-            dataGridView1.DataSource = connect.View();
+            dataGridView1.DataSource = connect.View(x);
         }
     }
 }
