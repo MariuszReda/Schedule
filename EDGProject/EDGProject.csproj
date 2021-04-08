@@ -52,6 +52,7 @@
     <Compile Include="AddEmployee.Designer.cs">
       <DependentUpon>AddEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Booking.cs" />
     <Compile Include="ConnectCustomer.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DBConnect.cs" />

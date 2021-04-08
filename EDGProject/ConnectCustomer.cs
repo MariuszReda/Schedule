@@ -112,6 +112,27 @@ namespace EDGProject
             }
         }
 
+        public List<Customer> GetCustomers()
+        {
+            using (var con = new SqlConnection(connection))
+            {
+                con.Open();
+                query = "SELECT * FROM Customer";
+                using (var cmd = new SqlCommand(query, con))
+                {
+                    var reader = cmd.ExecuteReader();
+                    var list = new List<Customer>();
+                    while (reader.Read())
+                    {
+                        list.Add(new Customer() { CustId = reader.GetInt32(0), CustName = reader.GetString(1), CustSurname = reader.GetString(2), CustPhone = reader.GetString(3) });
+                    }
+                    reader.Close();
+                    con.Close();
+                    return list;
+                }
+            }
+        }
+
     }
     
 }

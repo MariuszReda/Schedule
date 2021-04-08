@@ -68,6 +68,7 @@ namespace EDGProject
             textBox4.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
             textBox6.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
             textBox5.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
         }
 
         private void ViewSTART(int x,string dt)
