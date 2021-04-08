@@ -23,7 +23,9 @@ namespace EDGProject
         {
             InitializeComponent();
             ID = x;
-            View(ID);
+            textBox6.Text = DateTime.Now.ToString("dd.MM.yyyy");
+            string dt = DateTime.Now.ToString("yyyy-dd-MM");
+             ViewSTART(ID,dt);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -52,12 +54,10 @@ namespace EDGProject
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             clearText();
-            textBox6.Text = e.Start.ToString("yyyy-MM-dd");
-            //SqlDataAdapter SDA = new SqlDataAdapter("SELECT c.Godz,c.FirstName,c.LastName,c.Number,c.Comments,c.DataDay,e.LastName FROM Cus As c,Emp As e WHERE c.Cus_Emp_ID = e.Emp_ID AND DataDay LIKE '" + textBox5.Text + "%'"
-            //    + " AND c.Cus_Emp_ID LIKE'" + textBox8.Text + "%'", con);
-            //DataTable dt = new DataTable();
-            //SDA.Fill(dt);
-            //dataGridView1.DataSource = dt;
+            textBox6.Text = e.Start.ToString("dd-MM-yyyy");
+            string dt = textBox6.Text;
+            ConnectCustomer connect = new ConnectCustomer();
+            dataGridView1.DataSource = connect.viewData(ID, e.Start.ToString("yyyy-dd-MM"));
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -70,10 +70,15 @@ namespace EDGProject
             textBox5.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
         }
 
-        private void View(int x)
+        private void ViewSTART(int x,string dt)
         {
             ConnectCustomer connect = new ConnectCustomer();
-            dataGridView1.DataSource = connect.View(x);
+            dataGridView1.DataSource = connect.viewData(x,dt);
+        }
+        //delet button
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

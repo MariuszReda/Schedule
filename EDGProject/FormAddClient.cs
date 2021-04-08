@@ -30,13 +30,15 @@ namespace EDGProject
             customer.CustGodzin = textBox6.Text;
             customer.CustDate = dateTimePicker1.Value;
 
-            //if(!string.IsNullOrEmpty(customer.CustName) && !string.IsNullOrEmpty(customer.CustSurname) &&
-            //    !string.IsNullOrEmpty(customer.CustPhone) && !string.IsNullOrEmpty(customer.CustGodzin) &&
-            //    !string.IsNullOrEmpty(customer.CustUsluga.ToString()) && customer.CustDate !=null) 
-                        connect.Add(customer,myID);
-
-            //else
-            //    MessageBox.Show("Uzupełnij dane", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (!string.IsNullOrEmpty(customer.CustName) && !string.IsNullOrEmpty(customer.CustSurname) &&
+                !string.IsNullOrEmpty(customer.CustPhone) && !string.IsNullOrEmpty(customer.CustGodzin) &&
+                !string.IsNullOrEmpty(customer.CustUsluga.ToString()) && customer.CustDate != null)
+            {
+                connect.Add(customer, myID);
+                this.Close();
+            }
+            else
+                MessageBox.Show("Uzupełnij dane", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
 

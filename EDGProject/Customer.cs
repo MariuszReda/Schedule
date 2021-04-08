@@ -10,7 +10,7 @@ namespace EDGProject
     {
         public int CustId { get; set; }
         public string CustName { get; set; }
-        public string CustSurname { get; set; }
+        public string CustSurname { get; set; }       
         public string CustPhone { get; set; }
         public int CustUsluga { get; set; }
         public string CustGodzin { get; set; }

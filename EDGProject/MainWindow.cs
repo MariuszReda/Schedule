@@ -45,7 +45,7 @@ namespace EDGProject
             {
                 int x = item.EmployeeID;    //ref to ID in database
                 string person = item.Name + " " + item.Surname;
-                Emplo_treeView.Nodes.Add(x.ToString(),person);
+                Emplo_treeView.Nodes.Add(x.ToString(),person);             
                 emplos.Add(item);   //add to list Emplo all object Emplo
             }
         }
@@ -83,6 +83,7 @@ namespace EDGProject
 
         private void Emplo_treeView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+
             string x = Emplo_treeView.SelectedNode.Name; // set ID record DataBase
             DocumentWindow window = new DocumentWindow(int.Parse(x));
             window.Text = Emplo_treeView.SelectedNode.Text; //set Name new form
