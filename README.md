@@ -2,4 +2,5 @@
 ```cs
 database diagram
 ```
-![alt text](https://iv.pl/images/f375d7650d9d1caa14b61d128df7a63e.png)
+
+<a href="https://ibb.co/Nm6ZcvS"><img src="https://i.ibb.co/VQW2f1m/Bez-tytu-u.png" alt="Bez-tytu-u" border="0"></a>
