@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDGProject.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -18,7 +19,7 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
-    public class ConnectCustomer
+    public class ConnectBooking
     {
         private string connection = ConfigurationManager.ConnectionStrings["salonConnectionString"].ToString();
         private string query;
@@ -29,13 +30,14 @@ namespace EDGProject
         /// <param name="person"></param>
         /// <param name="c"></param>
         /// <param name="x"></param>
-        public void uploadDB(Customer person,int c,int x)
+        public void uploadDB(MCustomer person,int c,int x)
         {
             using (var con = new SqlConnection(connection))
             {
                 con.Open();
 
-                string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" + person.CustDate + "','" + person.CustGodzin + "','" + person.CustUsluga + "','" + c + "','" + x + "')";
+                string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" + person.CustDate + "','" + person.CustGodzin + 
+                    "','" + person.CustUsluga + "','" + c + "','" + x + "')";
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -43,12 +45,13 @@ namespace EDGProject
         }
 
 
-        public void Add(Customer person, int x)
+        public void Add(MCustomer person, int x)
         {
 
-            int c;
+            int c; //@ID = SCOPE_IDENTITY()
             var con = new SqlConnection(connection);
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId VALUES(@CustName,@CustSurname,@CustPhone)", con)) // @ID=SCOPE_IDENTITY()
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId" +
+                " VALUES(@CustName,@CustSurname,@CustPhone)", con))  
             {
                 cmd.Parameters.AddWithValue("@CustName", person.CustName);
                 cmd.Parameters.AddWithValue("@CustSurname", person.CustSurname);
@@ -64,10 +67,9 @@ namespace EDGProject
             }
             MessageBox.Show("Dodanie pomyślne");
             uploadDB(person, c,x);
-
         }
 
-        public void Delete(Customer person)
+        public void Delete(MCustomer person)
         {
             using (var con = new SqlConnection(connection))
             {
@@ -81,7 +83,7 @@ namespace EDGProject
         }
 
 
-        public void Edit(Customer person)
+        public void Edit(MCustomer person)
         {
             using (var con = new SqlConnection(connection))
             {

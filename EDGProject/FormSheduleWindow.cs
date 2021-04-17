@@ -18,15 +18,21 @@ namespace EDGProject
         {
             InitializeComponent();
         }
-        
+
+        //Dodac delegat zdarzenia przekazania nr ID Pracownika 
+
         public FormSheduleWindow(int x)
         {
+
             InitializeComponent();
             ID = x;
             textBox6.Text = DateTime.Now.ToString("dd.MM.yyyy");
             string dt = DateTime.Now.ToString("yyyy-dd-MM");
              ViewSTART(ID,dt);
         }
+
+        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -56,7 +62,7 @@ namespace EDGProject
             clearText();
             textBox6.Text = e.Start.ToString("dd-MM-yyyy");
             string dt = textBox6.Text;
-            ConnectCustomer connect = new ConnectCustomer();
+            ConnectBooking connect = new ConnectBooking();
             dataGridView1.DataSource = connect.viewData(ID, e.Start.ToString("yyyy-dd-MM"));
         }
 
@@ -72,7 +78,7 @@ namespace EDGProject
 
         private void ViewSTART(int x,string dt)
         {
-            ConnectCustomer connect = new ConnectCustomer();
+            ConnectBooking connect = new ConnectBooking();
             dataGridView1.DataSource = connect.viewData(x,dt);
         }
         //delet button

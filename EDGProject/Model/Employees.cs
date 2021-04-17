@@ -5,22 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace EDGProject
+namespace EDGProject.Model
 {
 
-   public class Employees
+   public class MEmployees
     {
         public int EmployeeID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        public Employees() { }
-        public Employees(string name, string surname)
+        public MEmployees() { }
+        public MEmployees(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
         } 
-        public Employees(int id, string name, string surname)
+        public MEmployees(int id, string name, string surname)
         {
             this.EmployeeID = id;
             this.Name = name;

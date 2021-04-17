@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EDGProject
+namespace EDGProject.Model
 {
-    public class Customer
+    public class MCustomer
     {
         public int CustId { get; set; }
         public string CustName { get; set; }

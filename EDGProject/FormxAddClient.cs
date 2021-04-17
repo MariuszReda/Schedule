@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDGProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,8 +22,8 @@ namespace EDGProject
 
         private void Add_button1_Click(object sender, EventArgs e)
         {
-            Customer customer = new Customer();
-            ConnectCustomer connect = new ConnectCustomer();
+            MCustomer customer = new MCustomer();
+            ConnectBooking connect = new ConnectBooking();
             customer.CustName = textBox1.Text;
             customer.CustSurname = textBox2.Text;
             customer.CustPhone = textBox3.Text;

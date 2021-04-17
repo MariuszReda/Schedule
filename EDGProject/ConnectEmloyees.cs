@@ -7,14 +7,15 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Collections;
 using System.Configuration;
+using EDGProject.Model;
 
 namespace EDGProject
 {
     public interface IDBiConnect
     {
-        void Add(Employees person);
-        void Delete(Employees person);
-        void Edit(Employees person);
+        void Add(MEmployees person);
+        void Delete(MEmployees person);
+        void Edit(MEmployees person);
     }
 
 
@@ -31,7 +32,7 @@ namespace EDGProject
         /// method Add Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Add(Employees person)
+        public void Add(MEmployees person)
         {
             using(var con = new SqlConnection(connection))
             {
@@ -48,12 +49,12 @@ namespace EDGProject
         /// method Delete Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Delete(Employees person)
+        public void Delete(MEmployees person)
         {
             using(var con = new SqlConnection(connection))
             {
                 con.Open();
-                query = "DELETE FROM Employees WHERE EmplyeeID ='" + person.EmployeeID + "'";
+                query = "DELETE FROM Employees WHERE Employee_Id ='" + person.EmployeeID + "'";
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -65,13 +66,13 @@ namespace EDGProject
         /// method Edit Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Edit(Employees person)
+        public void Edit(MEmployees person)
         {
             using(var con = new SqlConnection(connection))
             {
                 con.Open();
                 query = "UPDATE Employees SET FirstName = '" 
-                    + person.Name + "', LastName = '" + person.Surname + "'  WHERE EmplyeeID ='" + person.EmployeeID + "'";
+                    + person.Name + "', LastName = '" + person.Surname + "'  WHERE Employee_Id ='" + person.EmployeeID + "'";
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -83,7 +84,7 @@ namespace EDGProject
         /// Make and return list of emloyee 
         /// </summary>
         /// <returns></returns>
-        public List<Employees> GetAllEmployees()
+        public List<MEmployees> GetAllEmployees()
         {
             using (var con = new SqlConnection(connection))
             {
@@ -92,10 +93,10 @@ namespace EDGProject
                 using (var cmd = new SqlCommand(query, con))
                 {
                     var reader = cmd.ExecuteReader();
-                    var list = new List<Employees>();
+                    var list = new List<MEmployees>();
                     while (reader.Read())
                     {
-                        list.Add(new Employees() {EmployeeID= reader.GetInt32(0), Name = reader.GetString(1), Surname= reader.GetString(2)});
+                        list.Add(new MEmployees() {EmployeeID= reader.GetInt32(0), Name = reader.GetString(1), Surname= reader.GetString(2)});
                     }
                     reader.Close();
                     con.Close();
@@ -109,7 +110,7 @@ namespace EDGProject
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        public Employees GetEmplo(Employees person)
+        public MEmployees GetEmplo(MEmployees person)
         {
             using (var con = new SqlConnection(connection))
             {
@@ -132,16 +133,16 @@ namespace EDGProject
             }
         }
 
-        public Employees GetEmplo(int ID_Emp)
+        public MEmployees GetEmplo(int ID_Emp)
         {
             using (var con = new SqlConnection(connection))
             {               
                 con.Open();
-                query = "SELECT * FROM Employees WHERE EmplyeeID = '" + ID_Emp + "'";
+                query = "SELECT * FROM Employees WHERE Employee_Id = '" + ID_Emp + "'";
                 using (var cmd = new SqlCommand(query, con))
                 {
                     var reader = cmd.ExecuteReader();
-                    var person = new Employees();
+                    var person = new MEmployees();
                     person.EmployeeID = ID_Emp;
                     while (reader.Read())
                     {

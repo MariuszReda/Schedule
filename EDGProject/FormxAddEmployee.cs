@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EDGProject.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +16,9 @@ namespace EDGProject
         public FormxAddEmployee()
         {
             InitializeComponent();
-            Employees emplo = new Employees();
+            MEmployees emplo = new MEmployees();
         }
-        public FormxAddEmployee(Employees emplo)
+        public FormxAddEmployee(MEmployees emplo)
         {
             InitializeComponent();
             textBox3.Text = emplo.EmployeeID.ToString();
@@ -32,7 +33,7 @@ namespace EDGProject
             var surname = textBox2.Text;
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname) && string.IsNullOrEmpty(id))
             {
-                Employees employee = new Employees(name, surname);
+                MEmployees employee = new MEmployees(name, surname);
                 DBiConnect dBi = new DBiConnect();
                 Form form = new Form();
                 dBi.Add(employee);
@@ -41,7 +42,7 @@ namespace EDGProject
             else if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
             {
                 DBiConnect connect = new DBiConnect();
-                connect.Edit(new Employees(int.Parse(textBox3.Text), textBox1.Text, textBox2.Text));
+                connect.Edit(new MEmployees(int.Parse(textBox3.Text), textBox1.Text, textBox2.Text));
                 this.Close();
             }
             else
