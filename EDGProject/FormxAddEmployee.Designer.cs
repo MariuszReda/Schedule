@@ -1,7 +1,7 @@
 ﻿
 namespace EDGProject
 {
-    partial class AddEmployee
+    partial class FormxAddEmployee
     {
         /// <summary>
         /// Required designer variable.

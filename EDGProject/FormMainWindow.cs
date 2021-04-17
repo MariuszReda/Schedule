@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
-    public partial class MainWindow : Form
+    public partial class FormMainWindow : Form
     {
-        List<Emplo> emplos = new List<Emplo>();
+        List<Employees> emplos = new List<Employees>();
 
-        public MainWindow()
+        public FormMainWindow()
         {
             InitializeComponent();
             LoadEmp();
@@ -28,7 +28,7 @@ namespace EDGProject
 
         private void dodajToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddEmployee form = new AddEmployee();
+            FormxAddEmployee form = new FormxAddEmployee();
             form.StartPosition = FormStartPosition.CenterParent; // set location new window
             form.ShowDialog();
             LoadEmp();
@@ -41,7 +41,7 @@ namespace EDGProject
         {            
             DBiConnect dBi = new DBiConnect();
             Emplo_treeView.Nodes.Clear();
-            foreach (Emplo item in dBi.GetAllEmployees())
+            foreach (Employees item in dBi.GetAllEmployees())
             {
                 int x = item.EmployeeID;    //ref to ID in database
                 string person = item.Name + " " + item.Surname;
@@ -58,7 +58,7 @@ namespace EDGProject
 
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Emplo emplo = new Emplo();
+            Employees emplo = new Employees();
 
             int x = int.Parse(Emplo_treeView.SelectedNode.Name); // Name is key where key is ID value in database
             DBiConnect connect = new DBiConnect();
@@ -85,7 +85,7 @@ namespace EDGProject
         {
 
             string x = Emplo_treeView.SelectedNode.Name; // set ID record DataBase
-            DocumentWindow window = new DocumentWindow(int.Parse(x));
+            FormSheduleWindow window = new FormSheduleWindow(int.Parse(x));
             window.Text = Emplo_treeView.SelectedNode.Text; //set Name new form
             window.MdiParent = this;    //show new window like MDI
             window.Show();
@@ -100,8 +100,8 @@ namespace EDGProject
         {
             int x = int.Parse(Emplo_treeView.SelectedNode.Name); // Name is key where key is ID value in database
             DBiConnect connect = new DBiConnect();
-            Emplo emplo = connect.GetEmplo(x);
-            AddEmployee form = new AddEmployee(emplo);
+            Employees emplo = connect.GetEmplo(x);
+            FormxAddEmployee form = new FormxAddEmployee(emplo);
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
             LoadEmp();

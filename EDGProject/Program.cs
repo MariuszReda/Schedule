@@ -20,7 +20,7 @@ namespace EDGProject
 
             new DbSetUp().SetUp();
 
-            Application.Run(new MainWindow());
+            Application.Run(new FormMainWindow());
         }
     }
 }

@@ -53,34 +53,34 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddEmployee.cs">
+    <Compile Include="FormxAddEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddEmployee.Designer.cs">
-      <DependentUpon>AddEmployee.cs</DependentUpon>
+    <Compile Include="FormxAddEmployee.Designer.cs">
+      <DependentUpon>FormxAddEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration\ConfigurationManagerWrapper.cs" />
     <Compile Include="ConnectCustomer.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="DBConnect.cs" />
-    <Compile Include="DocumentWindow.cs">
+    <Compile Include="FormSheduleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DocumentWindow.Designer.cs">
-      <DependentUpon>DocumentWindow.cs</DependentUpon>
+    <Compile Include="FormSheduleWindow.Designer.cs">
+      <DependentUpon>FormSheduleWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Emplo.cs" />
-    <Compile Include="FormAddClient.cs">
+    <Compile Include="Employees.cs" />
+    <Compile Include="FormxAddClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAddClient.Designer.cs">
-      <DependentUpon>FormAddClient.cs</DependentUpon>
+    <Compile Include="FormxAddClient.Designer.cs">
+      <DependentUpon>FormxAddClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.cs">
+    <Compile Include="FormMainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.cs">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <Compile Include="FormMainWindow.Designer.cs">
+      <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="DbSetUp.cs" />
     <Compile Include="Program.cs" />
@@ -90,17 +90,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Salon_DataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddEmployee.resx">
-      <DependentUpon>AddEmployee.cs</DependentUpon>
+    <EmbeddedResource Include="FormxAddEmployee.resx">
+      <DependentUpon>FormxAddEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DocumentWindow.resx">
-      <DependentUpon>DocumentWindow.cs</DependentUpon>
+    <EmbeddedResource Include="FormSheduleWindow.resx">
+      <DependentUpon>FormSheduleWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAddClient.resx">
-      <DependentUpon>FormAddClient.cs</DependentUpon>
+    <EmbeddedResource Include="FormxAddClient.resx">
+      <DependentUpon>FormxAddClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainWindow.resx">
-      <DependentUpon>MainWindow.cs</DependentUpon>
+    <EmbeddedResource Include="FormMainWindow.resx">
+      <DependentUpon>FormMainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

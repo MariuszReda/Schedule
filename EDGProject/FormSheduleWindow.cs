@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
-    public partial class DocumentWindow : Form
+    public partial class FormSheduleWindow : Form
     {
         public int ID { get; set; }
 
-        public DocumentWindow()
+        public FormSheduleWindow()
         {
             InitializeComponent();
         }
         
-        public DocumentWindow(int x)
+        public FormSheduleWindow(int x)
         {
             InitializeComponent();
             ID = x;
@@ -46,7 +46,7 @@ namespace EDGProject
         private void Add_button1_Click(object sender, EventArgs e)
         {
             
-            FormAddClient form = new FormAddClient(ID);
+            FormxAddClient form = new FormxAddClient(ID);
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
         }

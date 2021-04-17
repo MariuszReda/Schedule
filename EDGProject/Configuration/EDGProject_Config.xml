@@ -1,23 +1,68 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>  
-<configuration>  
-    <startup>   
-        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />  
-    </startup>  
-  
-    <connectionStrings>  
-      <add name="defaultConnectionString" connectionString="Data Source=.;Integrated Security=True" />
-      <add name="salonConnectionString" connectionString="Data Source=.;Initial Catalog=Salon_;Integrated Security=True" />
-    </connectionStrings>
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<startup>
+		<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5" />
+	</startup>
 
-  <queries>
-    <add name ="Customer" >
-        CREATE TABLE[dbo].[Customer](
-        [ClientId][int] PRIMARY KEY IDENTITY(1, 1) NOT NULL,
-        [FirstName] [varchar](50) NOT NULL,
-        [LastName] [varchar](50) NOT NULL,
-        [Phone] [varchar](9) NOT NULL
-        )
-    </add> 
-  </queries>
-  
-</configuration>  
+	<connectionStrings>
+
+		<add name="defaultConnectionString" connectionString="Data Source=(LocalDB)\\MSSQLLocalDB;Integrated Security=True" />
+		<add name="salonConnectionString" connectionString="Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=Salon;Integrated Security=True" />
+	</connectionStrings>
+
+	<queries>
+		<add name ="Customer" >
+			CREATE TABLE[dbo].[Customer](
+			[Client_Id][int] PRIMARY KEY IDENTITY(1, 1) NOT NULL,
+			[FirstName] [varchar](50) NOT NULL,
+			[LastName] [varchar](50) NOT NULL,
+			[Phone] [varchar](9) NOT NULL
+			)
+		</add>
+
+		<add name ="Employees">
+			CREATE TABLE[dbo].[Employees](
+			[Employee_Id][int] PRIMARY KEY IDENTITY(1, 1) NOT NULL,
+			[FirstName] [varchar](50) NOT NULL,
+			[LastName] [varchar](50) NOT NULL
+			)
+		</add>
+
+		<add name ="Job">
+			CREATE TABLE[dbo].[Job](
+			[Job_Id][int] PRIMARY KEY IDENTITY (1,1) NOT NULL,
+			[Job][varchar](50) NOT NULL
+			)
+			INSERT INTO [dbo].[Job] (Job) VALUES ('broda'),('włosy'),('broda + włosy');
+		</add>
+
+		<add name ="Hour">
+			CREATE TABLE[dbo].[Hour](
+			[Hour_Id][int] PRIMARY KEY IDENTITY (1,1) NOT NULL,
+			[Hour][varchar](50) NOT NULL
+			)
+			INSERT INTO [dbo].[Hour] (Hour) VALUES ('8:00'),('8:30'),('9:00'),('9:30'),('10:00'),('10:30'),('11:00'),('11:30'),('12:00'),('12:30'),('13:00'),
+			('13:30'),('14:00'),('14:30'),('15:00'),('15:30'),('16:00'),('16:30'),('17:00'),('17:30'),('18:00');
+		</add>
+		
+		<add name ="Booking">
+			CREATE TABLE [dbo].[Booking] (
+			[Booking_Id]  INT  IDENTITY (1, 1) NOT NULL,
+			[Date]       DATE NOT NULL,
+			[Hour_Id]     INT  NOT NULL,
+			[Customer_Id] INT  NOT NULL,
+			[Emplyees_Id] INT  NOT NULL,
+			[Job_Id]      INT  NOT NULL,
+			CONSTRAINT [FK_Booking_Job] FOREIGN KEY ([Job_Id]) REFERENCES [dbo].[Job] ([Job_Id]),
+			CONSTRAINT [FK_Booking_Customer] FOREIGN KEY ([Customer_Id]) REFERENCES [dbo].[Customer] ([Client_Id]),
+			CONSTRAINT [FK_Booking_Employees] FOREIGN KEY ([Emplyees_Id]) REFERENCES [dbo].[Employees] ([Employee_Id]),
+			CONSTRAINT [FK_Booking_Hour] FOREIGN KEY ([Hour_Id]) REFERENCES [dbo].[Hour] ([Hour_Id])
+			);
+		</add>
+
+	</queries>
+
+
+
+
+</configuration>

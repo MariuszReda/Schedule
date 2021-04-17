@@ -15,15 +15,11 @@ C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\bin\Debug\EDGProject.exe.con
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\bin\Debug\EDGProject.exe
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\bin\Debug\EDGProject.pdb
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.csprojAssemblyReference.cache
-C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.AddEmployee.resources
-C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.DocumentWindow.resources
-C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormAddClient.resources
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.Properties.Resources.resources
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.csproj.GenerateResource.cache
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.csproj.CoreCompileInputs.cache
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.exe
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.pdb
-C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.MainWindow.resources
 C:\Users\Maciek\Documents\GitHub\Schedule-main\Schedule-main\EDGProject\bin\Debug\EDGProject.exe.config
 C:\Users\Maciek\Documents\GitHub\Schedule-main\Schedule-main\EDGProject\bin\Debug\EDGProject.exe
 C:\Users\Maciek\Documents\GitHub\Schedule-main\Schedule-main\EDGProject\bin\Debug\EDGProject.pdb
@@ -37,3 +33,7 @@ C:\Users\Maciek\Documents\GitHub\Schedule-main\Schedule-main\EDGProject\obj\Debu
 C:\Users\Maciek\Documents\GitHub\Schedule-main\Schedule-main\EDGProject\obj\Debug\EDGProject.csproj.CoreCompileInputs.cache
 C:\Users\Maciek\Documents\GitHub\Schedule-main\Schedule-main\EDGProject\obj\Debug\EDGProject.exe
 C:\Users\Maciek\Documents\GitHub\Schedule-main\Schedule-main\EDGProject\obj\Debug\EDGProject.pdb
+C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormxAddEmployee.resources
+C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormSheduleWindow.resources
+C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormxAddClient.resources
+C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormMainWindow.resources

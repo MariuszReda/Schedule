@@ -1,7 +1,7 @@
 ﻿
 namespace EDGProject
 {
-    partial class MainWindow
+    partial class FormMainWindow
     {
         /// <summary>
         /// Required designer variable.

@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
-    public partial class FormAddClient : Form
+    public partial class FormxAddClient : Form
     {
         public int myID { get; set; }
-        public FormAddClient(int x)
+        public FormxAddClient(int x)
         {
             InitializeComponent();
             myID = x;

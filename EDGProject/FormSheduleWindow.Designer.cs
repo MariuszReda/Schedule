@@ -1,7 +1,7 @@
 ﻿
 namespace EDGProject
 {
-    partial class DocumentWindow
+    partial class FormSheduleWindow
     {
         /// <summary>
         /// Wymagana zmienna projektanta.
@@ -314,7 +314,7 @@ namespace EDGProject
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 18);
             // 
-            // DocumentWindow
+            // FormSheduleWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -323,7 +323,7 @@ namespace EDGProject
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "DocumentWindow";
+            this.Name = "FormSheduleWindow";
             this.Text = "Edytor Dokumentów Graficznych";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);

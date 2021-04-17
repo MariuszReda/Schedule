@@ -1,7 +1,7 @@
 ﻿
 namespace EDGProject
 {
-    partial class FormAddClient
+    partial class FormxAddClient
     {
         /// <summary>
         /// Required designer variable.

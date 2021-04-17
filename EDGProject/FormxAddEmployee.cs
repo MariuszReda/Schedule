@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
-    public partial class AddEmployee : Form
+    public partial class FormxAddEmployee : Form
     {
-        public AddEmployee()
+        public FormxAddEmployee()
         {
             InitializeComponent();
-            Emplo emplo = new Emplo();
+            Employees emplo = new Employees();
         }
-        public AddEmployee(Emplo emplo)
+        public FormxAddEmployee(Employees emplo)
         {
             InitializeComponent();
             textBox3.Text = emplo.EmployeeID.ToString();
@@ -32,7 +32,7 @@ namespace EDGProject
             var surname = textBox2.Text;
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname) && string.IsNullOrEmpty(id))
             {
-                Emplo employee = new Emplo(name, surname);
+                Employees employee = new Employees(name, surname);
                 DBiConnect dBi = new DBiConnect();
                 Form form = new Form();
                 dBi.Add(employee);
@@ -41,7 +41,7 @@ namespace EDGProject
             else if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
             {
                 DBiConnect connect = new DBiConnect();
-                connect.Edit(new Emplo(int.Parse(textBox3.Text), textBox1.Text, textBox2.Text));
+                connect.Edit(new Employees(int.Parse(textBox3.Text), textBox1.Text, textBox2.Text));
                 this.Close();
             }
             else

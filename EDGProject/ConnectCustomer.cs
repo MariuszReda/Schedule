@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace EDGProject
 {
     public class ConnectCustomer
     {
-        private string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=Salon_;Integrated Security=True";
+        private string connection = ConfigurationManager.ConnectionStrings["salonConnectionString"].ToString();
         private string query;
 
         /// <summary>

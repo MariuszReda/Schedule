@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Collections;
+using System.Configuration;
 
 namespace EDGProject
 {
     public interface IDBiConnect
     {
-        void Add(Emplo person);
-        void Delete(Emplo person);
-        void Edit(Emplo person);
+        void Add(Employees person);
+        void Delete(Employees person);
+        void Edit(Employees person);
     }
 
 
@@ -22,14 +23,15 @@ namespace EDGProject
 /// </summary>
     public class DBiConnect :IDBiConnect
     {
-        private string connection = "Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=Salon_;Integrated Security=True";
+
+        private string connection = ConfigurationManager.ConnectionStrings["salonConnectionString"].ToString();
         private string query;
 
         /// <summary>
         /// method Add Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Add(Emplo person)
+        public void Add(Employees person)
         {
             using(var con = new SqlConnection(connection))
             {
@@ -46,7 +48,7 @@ namespace EDGProject
         /// method Delete Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Delete(Emplo person)
+        public void Delete(Employees person)
         {
             using(var con = new SqlConnection(connection))
             {
@@ -63,7 +65,7 @@ namespace EDGProject
         /// method Edit Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Edit(Emplo person)
+        public void Edit(Employees person)
         {
             using(var con = new SqlConnection(connection))
             {
@@ -81,7 +83,7 @@ namespace EDGProject
         /// Make and return list of emloyee 
         /// </summary>
         /// <returns></returns>
-        public List<Emplo> GetAllEmployees()
+        public List<Employees> GetAllEmployees()
         {
             using (var con = new SqlConnection(connection))
             {
@@ -90,10 +92,10 @@ namespace EDGProject
                 using (var cmd = new SqlCommand(query, con))
                 {
                     var reader = cmd.ExecuteReader();
-                    var list = new List<Emplo>();
+                    var list = new List<Employees>();
                     while (reader.Read())
                     {
-                        list.Add(new Emplo() {EmployeeID= reader.GetInt32(0), Name = reader.GetString(1), Surname= reader.GetString(2)});
+                        list.Add(new Employees() {EmployeeID= reader.GetInt32(0), Name = reader.GetString(1), Surname= reader.GetString(2)});
                     }
                     reader.Close();
                     con.Close();
@@ -107,7 +109,7 @@ namespace EDGProject
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        public Emplo GetEmplo(Emplo person)
+        public Employees GetEmplo(Employees person)
         {
             using (var con = new SqlConnection(connection))
             {
@@ -130,7 +132,7 @@ namespace EDGProject
             }
         }
 
-        public Emplo GetEmplo(int ID_Emp)
+        public Employees GetEmplo(int ID_Emp)
         {
             using (var con = new SqlConnection(connection))
             {               
@@ -139,7 +141,7 @@ namespace EDGProject
                 using (var cmd = new SqlCommand(query, con))
                 {
                     var reader = cmd.ExecuteReader();
-                    var person = new Emplo();
+                    var person = new Employees();
                     person.EmployeeID = ID_Emp;
                     while (reader.Read())
                     {

@@ -9,8 +9,8 @@ namespace EDGProject
     public class Booking
     {
 
-        public int CustUsluga { get; set; }
-        public string CustGodzin { get; set; }
+        public int Id_Usluga { get; set; }
+        //public string CustGodzin { get; set; }
 
         DateTime CustDate;
         public DateTime GetCustDate
@@ -22,7 +22,6 @@ namespace EDGProject
             set 
             {
                 CustDate.ToString("yyyy-MM-dd");
-                //DateTime.Parse(CustDate) = value; 
             }
         }
 
