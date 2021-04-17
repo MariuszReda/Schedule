@@ -17,3 +17,4 @@ program/obj/project.assets.json
 program/obj/project.nuget.cache
 .vs/program/v16/.suo
 program.sln
+restore
