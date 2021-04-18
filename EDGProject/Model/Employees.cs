@@ -8,21 +8,21 @@ using System.Data.SqlClient;
 namespace EDGProject.Model
 {
 
-   public class MEmployees
+   public class Employees
     {
-        public int EmployeeID { get; set; }
+        public int EmployeeId { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
 
-        public MEmployees() { }
-        public MEmployees(string name, string surname)
+        public Employees() { }
+        public Employees(string name, string surname)
         {
             this.Name = name;
             this.Surname = surname;
         } 
-        public MEmployees(int id, string name, string surname)
+        public Employees(int id, string name, string surname)
         {
-            this.EmployeeID = id;
+            this.EmployeeId = id;
             this.Name = name;
             this.Surname = surname;
         }

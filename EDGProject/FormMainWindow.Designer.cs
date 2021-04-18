@@ -69,7 +69,7 @@ namespace EDGProject
             this.toolStripSeparator1,
             this.zamknijToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
             // nowyToolStripMenuItem
@@ -125,10 +125,11 @@ namespace EDGProject
             // 
             // Emplo_treeView
             // 
+            this.Emplo_treeView.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.Emplo_treeView.Dock = System.Windows.Forms.DockStyle.Left;
             this.Emplo_treeView.Location = new System.Drawing.Point(0, 28);
             this.Emplo_treeView.Name = "Emplo_treeView";
-            this.Emplo_treeView.Size = new System.Drawing.Size(149, 422);
+            this.Emplo_treeView.Size = new System.Drawing.Size(191, 422);
             this.Emplo_treeView.TabIndex = 6;
             this.Emplo_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Emplo_treeView_AfterSelect);
             this.Emplo_treeView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mauseClick);
@@ -141,23 +142,23 @@ namespace EDGProject
             this.fffToolStripMenuItem,
             this.usuńToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(120, 52);
             // 
             // fffToolStripMenuItem
             // 
             this.fffToolStripMenuItem.Name = "fffToolStripMenuItem";
-            this.fffToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.fffToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.fffToolStripMenuItem.Text = "Edytuj";
             this.fffToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
             // usuńToolStripMenuItem1
             // 
             this.usuńToolStripMenuItem1.Name = "usuńToolStripMenuItem1";
-            this.usuńToolStripMenuItem1.Size = new System.Drawing.Size(210, 24);
+            this.usuńToolStripMenuItem1.Size = new System.Drawing.Size(119, 24);
             this.usuńToolStripMenuItem1.Text = "Usuń";
             this.usuńToolStripMenuItem1.Click += new System.EventHandler(this.usuńToolStripMenuItem1_Click);
             // 
-            // MainWindow
+            // FormMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -166,7 +167,7 @@ namespace EDGProject
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "MainWindow";
+            this.Name = "FormMainWindow";
             this.Text = "MianWindow";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

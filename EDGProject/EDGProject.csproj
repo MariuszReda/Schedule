@@ -63,7 +63,7 @@
     <Compile Include="Configuration\ConfigurationManagerWrapper.cs" />
     <Compile Include="ConnectBooking.cs" />
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="ConnectEmloyees.cs" />
+    <Compile Include="ConnectEmloyee.cs" />
     <Compile Include="FormSheduleWindow.cs">
       <SubType>Form</SubType>
     </Compile>

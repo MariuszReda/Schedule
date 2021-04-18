@@ -16,12 +16,12 @@ namespace EDGProject
         public FormxAddEmployee()
         {
             InitializeComponent();
-            MEmployees emplo = new MEmployees();
+            Employees emplo = new Employees();
         }
-        public FormxAddEmployee(MEmployees emplo)
+        public FormxAddEmployee(Employees emplo)
         {
             InitializeComponent();
-            textBox3.Text = emplo.EmployeeID.ToString();
+            textBox3.Text = emplo.EmployeeId.ToString();
             textBox1.Text = emplo.Name;
             textBox2.Text = emplo.Surname;
         }
@@ -33,16 +33,16 @@ namespace EDGProject
             var surname = textBox2.Text;
             if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname) && string.IsNullOrEmpty(id))
             {
-                MEmployees employee = new MEmployees(name, surname);
-                DBiConnect dBi = new DBiConnect();
+                Employees employee = new Employees(name, surname);
+                ConnectEmloyee dBi = new ConnectEmloyee();
                 Form form = new Form();
                 dBi.Add(employee);
                 this.Close();
             }
             else if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(surname))
             {
-                DBiConnect connect = new DBiConnect();
-                connect.Edit(new MEmployees(int.Parse(textBox3.Text), textBox1.Text, textBox2.Text));
+                ConnectEmloyee connect = new ConnectEmloyee();
+                connect.Edit(new Employees(int.Parse(textBox3.Text), textBox1.Text, textBox2.Text));
                 this.Close();
             }
             else

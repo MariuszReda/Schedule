@@ -8,6 +8,10 @@
 
 		<add name="defaultConnectionString" connectionString="Data Source=(LocalDB)\\MSSQLLocalDB;Integrated Security=True" />
 		<add name="salonConnectionString" connectionString="Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=Salon;Integrated Security=True" />
+		
+		<add name="defaultConnectionString1" connectionString="Data Source=.;Integrated Security=True" />
+		<add name="salonConnectionString1" connectionString="Data Source=.;Initial Catalog=Salon;Integrated Security=True" />
+
 	</connectionStrings>
 
 	<queries>

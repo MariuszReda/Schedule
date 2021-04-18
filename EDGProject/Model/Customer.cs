@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace EDGProject.Model
 {
-    public class MCustomer
+    public class Customer
     {
-        public int CustId { get; set; }
-        public string CustName { get; set; }
-        public string CustSurname { get; set; }       
-        public string CustPhone { get; set; }
-        public int CustUsluga { get; set; }
-        public string CustGodzin { get; set; }
-        public DateTime CustDate { get; set; }
+        public int CustomerId { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }       
+        public string Phone { get; set; }
+        //public int CustUsluga { get; set; }
+        //public string CustGodzin { get; set; }
+        //public DateTime CustDate { get; set; }
     }
 }

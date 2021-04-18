@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EDGProject.Model
 {
-    public class MBooking
+    public class Booking
     {
         public int BookingId { get; set; }
         

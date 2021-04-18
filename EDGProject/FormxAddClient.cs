@@ -22,24 +22,24 @@ namespace EDGProject
 
         private void Add_button1_Click(object sender, EventArgs e)
         {
-            MCustomer customer = new MCustomer();
+            Customer customer = new Customer();
             ConnectBooking connect = new ConnectBooking();
-            customer.CustName = textBox1.Text;
-            customer.CustSurname = textBox2.Text;
-            customer.CustPhone = textBox3.Text;
-            customer.CustUsluga = comboBox1.SelectedIndex;
-            customer.CustGodzin = textBox6.Text;
-            customer.CustDate = dateTimePicker1.Value;
+            customer.Name = textBox1.Text;
+            customer.Surname = textBox2.Text;
+            customer.Phone = textBox3.Text;
+            //customer.CustUsluga = comboBox1.SelectedIndex;
+            //customer.CustGodzin = textBox6.Text;
+            //customer.CustDate = dateTimePicker1.Value;
 
-            if (!string.IsNullOrEmpty(customer.CustName) && !string.IsNullOrEmpty(customer.CustSurname) &&
-                !string.IsNullOrEmpty(customer.CustPhone) && !string.IsNullOrEmpty(customer.CustGodzin) &&
-                !string.IsNullOrEmpty(customer.CustUsluga.ToString()) && customer.CustDate != null)
-            {
-                connect.Add(customer, myID);
-                this.Close();
-            }
-            else
-                MessageBox.Show("Uzupełnij dane", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //if (!string.IsNullOrEmpty(customer.Name) && !string.IsNullOrEmpty(customer.Surname) &&
+            //    !string.IsNullOrEmpty(customer.Phone) && !string.IsNullOrEmpty(customer.CustGodzin) &&
+            //    !string.IsNullOrEmpty(customer.CustUsluga.ToString()) && customer.CustDate != null)
+            //{
+            //    connect.Add(customer, myID);
+            //    this.Close();
+            //}
+            //else
+            //    MessageBox.Show("Uzupełnij dane", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
 

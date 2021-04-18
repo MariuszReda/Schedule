@@ -7,36 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EDGProject.Model;
 
 namespace EDGProject
 {
+
     public partial class FormSheduleWindow : Form
     {
-        public int ID { get; set; }
+        Employees employees = new Employees();
 
         public FormSheduleWindow()
         {
+
             InitializeComponent();
         }
 
-        //Dodac delegat zdarzenia przekazania nr ID Pracownika 
-
-        public FormSheduleWindow(int x)
+        //Dodac delegat zdarzenia przekazania nr ID Pracownika dodac linq firstofdefault
+        
+        public FormSheduleWindow(Employees employees)
         {
-
+            
             InitializeComponent();
-            ID = x;
+            this.employees.Name = employees.Name;
+            this.employees.Surname = employees.Surname;
+            this.employees.EmployeeId = employees.EmployeeId;
             textBox6.Text = DateTime.Now.ToString("dd.MM.yyyy");
             string dt = DateTime.Now.ToString("yyyy-dd-MM");
-             ViewSTART(ID,dt);
+            ViewSTART(employees,dt);
         }
 
         
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            uzytkowniktoolStripStatusLabel1.Text = System.Environment.UserName;          
+            string x = employees.Name + " " + employees.Surname;
+            uzytkowniktoolStripStatusLabel1.Text = x;
         }
 
         public void clearText()
@@ -50,20 +54,19 @@ namespace EDGProject
         }
 
         private void Add_button1_Click(object sender, EventArgs e)
-        {
-            
-            FormxAddClient form = new FormxAddClient(ID);
+        {           
+            FormxAddClient form = new FormxAddClient(employees.EmployeeId);
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
-            clearText();
-            textBox6.Text = e.Start.ToString("dd-MM-yyyy");
-            string dt = textBox6.Text;
-            ConnectBooking connect = new ConnectBooking();
-            dataGridView1.DataSource = connect.viewData(ID, e.Start.ToString("yyyy-dd-MM"));
+            //clearText();
+            //textBox6.Text = e.Start.ToString("dd-MM-yyyy");
+            //string dt = textBox6.Text;
+            //ConnectBooking connect = new ConnectBooking();
+            //dataGridView1.DataSource = connect.viewData(employees.EmployeeId, e.Start.ToString("yyyy-dd-MM"));
         }
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
@@ -76,10 +79,10 @@ namespace EDGProject
             textBox5.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
         }
 
-        private void ViewSTART(int x,string dt)
+        private void ViewSTART(Employees employees,string dt)
         {
             ConnectBooking connect = new ConnectBooking();
-            dataGridView1.DataSource = connect.viewData(x,dt);
+            dataGridView1.DataSource = connect.viewData(employees, dt);
         }
         //delet button
         private void button1_Click(object sender, EventArgs e)

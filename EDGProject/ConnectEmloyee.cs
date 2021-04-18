@@ -8,21 +8,22 @@ using System.Windows.Forms;
 using System.Collections;
 using System.Configuration;
 using EDGProject.Model;
+using System.Data.Common;
 
 namespace EDGProject
 {
     public interface IDBiConnect
     {
-        void Add(MEmployees person);
-        void Delete(MEmployees person);
-        void Edit(MEmployees person);
+        void Add(Employees person);
+        void Delete(Employees person);
+        void Edit(Employees person);
     }
 
 
 /// <summary>
 /// This class connect DB for Employeers
 /// </summary>
-    public class DBiConnect :IDBiConnect
+    public class ConnectEmloyee : IDBiConnect
     {
 
         private string connection = ConfigurationManager.ConnectionStrings["salonConnectionString"].ToString();
@@ -32,9 +33,10 @@ namespace EDGProject
         /// method Add Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Add(MEmployees person)
+        public void Add(Employees person)
         {
-            using(var con = new SqlConnection(connection))
+
+            using (var con = new SqlConnection(connection))
             {
                 con.Open();
                 query = "INSERT INTO Employees (FirstName, LastName) VALUES ('" + person.Name + "','" + person.Surname + "')";
@@ -49,12 +51,13 @@ namespace EDGProject
         /// method Delete Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Delete(MEmployees person)
+        public void Delete(Employees person)
         {
-            using(var con = new SqlConnection(connection))
+
+            using (var con = new SqlConnection(connection))
             {
                 con.Open();
-                query = "DELETE FROM Employees WHERE Employee_Id ='" + person.EmployeeID + "'";
+                query = "DELETE FROM Employees WHERE Employee_Id ='" + person.EmployeeId + "'";
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -66,13 +69,14 @@ namespace EDGProject
         /// method Edit Employees in DB
         /// </summary>
         /// <param name="person"></param>
-        public void Edit(MEmployees person)
+        public void Edit(Employees person)
         {
-            using(var con = new SqlConnection(connection))
+
+            using (var con = new SqlConnection(connection))
             {
                 con.Open();
                 query = "UPDATE Employees SET FirstName = '" 
-                    + person.Name + "', LastName = '" + person.Surname + "'  WHERE Employee_Id ='" + person.EmployeeID + "'";
+                    + person.Name + "', LastName = '" + person.Surname + "'  WHERE Employee_Id ='" + person.EmployeeId + "'";
                 var cmd = new SqlCommand(query, con);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -84,8 +88,9 @@ namespace EDGProject
         /// Make and return list of emloyee 
         /// </summary>
         /// <returns></returns>
-        public List<MEmployees> GetAllEmployees()
+        public List<Employees> GetAllEmployees()
         {
+
             using (var con = new SqlConnection(connection))
             {
                 con.Open();
@@ -93,10 +98,10 @@ namespace EDGProject
                 using (var cmd = new SqlCommand(query, con))
                 {
                     var reader = cmd.ExecuteReader();
-                    var list = new List<MEmployees>();
+                    var list = new List<Employees>();
                     while (reader.Read())
                     {
-                        list.Add(new MEmployees() {EmployeeID= reader.GetInt32(0), Name = reader.GetString(1), Surname= reader.GetString(2)});
+                        list.Add(new Employees() {EmployeeId= reader.GetInt32(0), Name = reader.GetString(1), Surname= reader.GetString(2)});
                     }
                     reader.Close();
                     con.Close();
@@ -110,8 +115,9 @@ namespace EDGProject
         /// </summary>
         /// <param name="person"></param>
         /// <returns></returns>
-        public MEmployees GetEmplo(MEmployees person)
+        public Employees GetEmplo(Employees person)
         {
+
             using (var con = new SqlConnection(connection))
             {
                 con.Open();
@@ -122,7 +128,7 @@ namespace EDGProject
                     var reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        person.EmployeeID = reader.GetInt32(0);
+                        person.EmployeeId = reader.GetInt32(0);
                         person.Name = reader.GetString(1);
                         person.Surname = reader.GetString(2);
                     }
@@ -133,8 +139,9 @@ namespace EDGProject
             }
         }
 
-        public MEmployees GetEmplo(int ID_Emp)
+        public Employees GetEmplo(int ID_Emp)
         {
+
             using (var con = new SqlConnection(connection))
             {               
                 con.Open();
@@ -142,11 +149,11 @@ namespace EDGProject
                 using (var cmd = new SqlCommand(query, con))
                 {
                     var reader = cmd.ExecuteReader();
-                    var person = new MEmployees();
-                    person.EmployeeID = ID_Emp;
+                    var person = new Employees();
+                    person.EmployeeId = ID_Emp;
                     while (reader.Read())
                     {
-                        person.EmployeeID = reader.GetInt32(0);
+                        person.EmployeeId = reader.GetInt32(0);
                         person.Name = reader.GetString(1);
                         person.Surname = reader.GetString(2);
                     }

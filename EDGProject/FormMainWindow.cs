@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EDGProject
-{
+{    
     public partial class FormMainWindow : Form
     {
-        List<MEmployees> emplos = new List<MEmployees>();
+        List<Employees> emplos = new List<Employees>();
 
         public FormMainWindow()
         {
@@ -39,12 +39,12 @@ namespace EDGProject
         /// Method load list in to treeView;
         /// </summary>
         public void LoadEmp()
-        {            
-            DBiConnect dBi = new DBiConnect();
+        {
+            ConnectEmloyee dBi = new ConnectEmloyee();
             Emplo_treeView.Nodes.Clear();
-            foreach (MEmployees item in dBi.GetAllEmployees())
+            foreach (Employees item in dBi.GetAllEmployees())
             {
-                int x = item.EmployeeID;    //ref to ID in database
+                int x = item.EmployeeId;    //ref to ID in database
                 string person = item.Name + " " + item.Surname;
                 Emplo_treeView.Nodes.Add(x.ToString(),person);             
                 emplos.Add(item);   //add to list Emplo all object Emplo
@@ -59,10 +59,10 @@ namespace EDGProject
 
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MEmployees emplo = new MEmployees();
+            Employees emplo = new Employees();
 
             int x = int.Parse(Emplo_treeView.SelectedNode.Name); // Name is key where key is ID value in database
-            DBiConnect connect = new DBiConnect();
+            ConnectEmloyee connect = new ConnectEmloyee();
             emplo = connect.GetEmplo(x);
             connect.Delete(emplo);
             LoadEmp();
@@ -83,25 +83,23 @@ namespace EDGProject
         }
 
 
-
-
         private void Emplo_treeView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            string x = Emplo_treeView.SelectedNode.Name; // set ID record DataBase
-            FormSheduleWindow window = new FormSheduleWindow(int.Parse(x));
+            Employees employees = GetIDEmployeeAfterClick();
+            //string x = Emplo_treeView.SelectedNode.Name; // set ID record DataBase
+            FormSheduleWindow window = new FormSheduleWindow(employees);
             window.Text = Emplo_treeView.SelectedNode.Text; //set Name new form
             window.MdiParent = this;    //show new window like MDI
-            window.Show();
-     
+            window.Show();    
         }
-        public int GetIDEmployeeAfterClick()
+
+
+        private Employees GetIDEmployeeAfterClick()
         {
-            string x = Emplo_treeView.SelectedNode.Name;
-            return int.Parse(x);
+            ConnectEmloyee emloyee = new ConnectEmloyee();           
+            string x = Emplo_treeView.SelectedNode.Name;           
+            return emloyee.GetEmplo(int.Parse(x));
         }
-
-
-
 
 
         /// <summary>
@@ -112,8 +110,8 @@ namespace EDGProject
         private void EditToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int x = int.Parse(Emplo_treeView.SelectedNode.Name); // Name is key where key is ID value in database
-            DBiConnect connect = new DBiConnect();
-            MEmployees emplo = connect.GetEmplo(x);
+            ConnectEmloyee connect = new ConnectEmloyee();
+            Employees emplo = connect.GetEmplo(x);
             FormxAddEmployee form = new FormxAddEmployee(emplo);
             form.StartPosition = FormStartPosition.CenterParent;
             form.ShowDialog();
