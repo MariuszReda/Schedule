@@ -31,7 +31,6 @@ namespace EDGProject
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.Edit_button2 = new System.Windows.Forms.Button();
             this.Add_button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -65,7 +64,6 @@ namespace EDGProject
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.Edit_button2);
             this.panel1.Controls.Add(this.Add_button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -76,22 +74,13 @@ namespace EDGProject
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(5, 98);
+            this.button1.Location = new System.Drawing.Point(5, 54);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 38);
             this.button1.TabIndex = 2;
             this.button1.Text = "Usuń";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Edit_button2
-            // 
-            this.Edit_button2.Location = new System.Drawing.Point(6, 54);
-            this.Edit_button2.Name = "Edit_button2";
-            this.Edit_button2.Size = new System.Drawing.Size(112, 38);
-            this.Edit_button2.TabIndex = 1;
-            this.Edit_button2.Text = "Edytuj";
-            this.Edit_button2.UseVisualStyleBackColor = true;
             // 
             // Add_button1
             // 
@@ -100,7 +89,7 @@ namespace EDGProject
             this.Add_button1.Name = "Add_button1";
             this.Add_button1.Size = new System.Drawing.Size(112, 38);
             this.Add_button1.TabIndex = 0;
-            this.Add_button1.Text = "Dodaj";
+            this.Add_button1.Text = "Booking";
             this.Add_button1.UseVisualStyleBackColor = true;
             this.Add_button1.Click += new System.EventHandler(this.Add_button1_Click);
             // 
@@ -298,8 +287,8 @@ namespace EDGProject
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(94, 20);
-            this.toolStripStatusLabel2.Text = "Zalogowany:";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(97, 20);
+            this.toolStripStatusLabel2.Text = "PRACOWNIK:";
             // 
             // uzytkowniktoolStripStatusLabel1
             // 
@@ -334,7 +323,6 @@ namespace EDGProject
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button Edit_button2;
         private System.Windows.Forms.Button Add_button1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;

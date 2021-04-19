@@ -84,6 +84,7 @@
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="DbSetUp.cs" />
+    <Compile Include="Model\Job.cs" />
     <Compile Include="Model\VisitTime.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

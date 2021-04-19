@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace EDGProject.Model
 {
-    public class VisitTime : Job
+    public class Job : Customer
     {
-        public int HourId { get; set; }
-        public TimeSpan Time { get; set; }
+        public int JobId { get; set; }
+        public string jobName { get; set; }
     }
+
 }

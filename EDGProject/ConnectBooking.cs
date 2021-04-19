@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 
 /*
- * NAPISZ PRECDURY W BAZIE DANYCH DLA OPERACJI DODAWANIA JEDNOCZESNIE DWOCH OBIEKTOW DO ROZNYCH TABEL JEDNOCZESNIE
+ * NAPISZ PRECDURE DLA OPERACJI DODAWANIA JEDNOCZESNIE DWOCH OBIEKTOW DO ROZNYCH TABEL
  */
 
 namespace EDGProject
@@ -28,13 +28,16 @@ namespace EDGProject
         /// <param name="person"></param>
         /// <param name="c"></param>
         /// <param name="x"></param>
-        public void uploadResult(Customer person,int c,int x)
+        public void uploadResult(Customer person, int x)
         {
             using (var con = new SqlConnection(connection))
             {
+
+
+
                 //con.Open();
 
-                //string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" + person.CustDate + "','" + person.CustGodzin +
+                //string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" +  + "','" + person.CustGodzin +
                 //    "','" + person + "','" + c + "','" + x + "')";
                 //var cmd = new SqlCommand(query, con);
                 //cmd.ExecuteNonQuery();
@@ -43,58 +46,32 @@ namespace EDGProject
         }
 
 
-        //public void Add(Customer person, int x)
-        //{
+        public void Add(Customer customer, int x)
+        {
+            //, int x
+             //@ID = SCOPE_IDENTITY()
+            var con = new SqlConnection(connection);
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId" +
+                " VALUES(@Name,@Surname,@Phone)", con))
+            {
+                
+                cmd.Parameters.AddWithValue("@Name", customer.Name);
+                cmd.Parameters.AddWithValue("@Surname", customer.Surname);
+                cmd.Parameters.AddWithValue("@Phone", customer.Phone);
 
-        //    int c; //@ID = SCOPE_IDENTITY()
-        //    var con = new SqlConnection(connection);
-        //    using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId" +
-        //        " VALUES(@CustName,@CustSurname,@CustPhone)", con))  
-        //    {
-        //        cmd.Parameters.AddWithValue("@CustName", person.CustName);
-        //        cmd.Parameters.AddWithValue("@CustSurname", person.CustSurname);
-        //        cmd.Parameters.AddWithValue("@CustPhone", person.CustPhone);
+                con.Open();
 
-        //        con.Open();
+                customer.CustomerId = (int)cmd.ExecuteScalar();
 
-        //        c = (int)cmd.ExecuteScalar();
+                if (con.State == System.Data.ConnectionState.Open)
+                    con.Close();
 
-        //        if (con.State == System.Data.ConnectionState.Open)
-        //            con.Close();
+            }
+            uploadResult(customer, x);
+            MessageBox.Show("Dodanie pomyślne");
+            
+        }
 
-        //    }
-        //    MessageBox.Show("Dodanie pomyślne");
-        //    uploadDB(person, c,x);
-        //}
-
-        //public void Delete(MCustomer person)
-        //{
-        //    using (var con = new SqlConnection(connection))
-        //    {
-        //        con.Open();
-        //        query = "DELETE FROM Booking WHERE CustomerID ='" + person.CustId + "'";
-        //        var cmd = new SqlCommand(query, con);
-        //        cmd.ExecuteNonQuery();
-        //        con.Close();
-        //    }
-        //    MessageBox.Show("Usuwanie zakończone");
-        //}
-
-
-        //public void Edit(MCustomer person)
-        //{
-        //    using (var con = new SqlConnection(connection))
-        //    {
-        //        con.Open();
-        //        query = "UPDATE Employees SET FirstName = '"
-        //            + person.CustName + "', LastName = '" + person.CustSurname + "', LastName = '" + person.CustPhone + 
-        //            "'  WHERE EmplyeeID ='" + person.CustId + "'";
-        //        var cmd = new SqlCommand(query, con);
-        //        cmd.ExecuteNonQuery();
-        //        con.Close();
-        //    }
-        //    MessageBox.Show("Edycja zakończona");
-        //}
 
         public DataTable viewData(Employees employees, string data)
         {
@@ -102,7 +79,7 @@ namespace EDGProject
             using (var con = new SqlConnection(connection))
             {
                 con.Open();
-                query = ConfigurationManager.AppSettings.Get("view").ToString() + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId + "'OR [Booking].Emplyees_Id is Null ";
+                query = ConfigurationManager.AppSettings.Get("view").ToString() + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId +"'AND [Booking].Date LIKE '"+ data +"%'OR [Booking].Emplyees_Id is Null ";
 
                 using (var sda = new SqlDataAdapter(query, con))
                 {
@@ -111,7 +88,37 @@ namespace EDGProject
                 }
             }
         }
-
-    }
-    
+    }   
 }
+
+
+
+
+//public void Delete(MCustomer person)
+//{
+//    using (var con = new SqlConnection(connection))
+//    {
+//        con.Open();
+//        query = "DELETE FROM Booking WHERE CustomerID ='" + person.CustId + "'";
+//        var cmd = new SqlCommand(query, con);
+//        cmd.ExecuteNonQuery();
+//        con.Close();
+//    }
+//    MessageBox.Show("Usuwanie zakończone");
+//}
+
+
+//public void Edit(MCustomer person)
+//{
+//    using (var con = new SqlConnection(connection))
+//    {
+//        con.Open();
+//        query = "UPDATE Employees SET FirstName = '"
+//            + person.CustName + "', LastName = '" + person.CustSurname + "', LastName = '" + person.CustPhone + 
+//            "'  WHERE EmplyeeID ='" + person.CustId + "'";
+//        var cmd = new SqlCommand(query, con);
+//        cmd.ExecuteNonQuery();
+//        con.Close();
+//    }
+//    MessageBox.Show("Edycja zakończona");
+//}
