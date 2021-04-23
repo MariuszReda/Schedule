@@ -28,50 +28,61 @@ namespace EDGProject
         /// <param name="person"></param>
         /// <param name="c"></param>
         /// <param name="x"></param>
-        public void uploadResult(Customer person, int x)
+        //public void uploadResult(Booking booking, int x )
+        //{
+        //    using (var con = new SqlConnection(connection))
+        //    {
+        //        con.Open();
+
+        //        string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" + booking.Date +"','" + booking.HourId +
+        //            "','" + booking.JobId + "','" + booking.CustomerId + "','" + booking.EmplyeesId + "')";
+        //        var cmd = new SqlCommand(query, con);
+        //        cmd.ExecuteNonQuery();
+        //        con.Close();
+        //    }
+        //}
+
+
+        //public void Add(Booking customer, int x)
+        //{
+        //    //, int x
+        //    //@ID = SCOPE_IDENTITY()
+        //    var con = new SqlConnection(connection);
+        //    using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId" +
+        //        " VALUES(@FirstName,@LastName,@Phone)", con))
+        //    {
+                
+        //        cmd.Parameters.AddWithValue("@FirstName", customer.Name);
+        //        cmd.Parameters.AddWithValue("@LastName", customer.Surname);
+        //        cmd.Parameters.AddWithValue("@Phone", customer.Phone);
+
+        //        con.Open();
+
+        //        customer.CustomerId = (int)cmd.ExecuteScalar();
+
+        //        if (con.State == System.Data.ConnectionState.Open)
+        //            con.Close();
+
+        //    }
+        //    //uploadResult(customer, x);
+        //    MessageBox.Show("Dodanie pomyślne");          
+        //}
+
+        public DataTable viewData(string id, string data)
         {
+            DataTable dataTable = new DataTable();
             using (var con = new SqlConnection(connection))
             {
-
-
-
-                //con.Open();
-
-                //string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" +  + "','" + person.CustGodzin +
-                //    "','" + person + "','" + c + "','" + x + "')";
-                //var cmd = new SqlCommand(query, con);
-                //cmd.ExecuteNonQuery();
-                //con.Close();
-            }
-        }
-
-
-        public void Add(Customer customer, int x)
-        {
-            //, int x
-             //@ID = SCOPE_IDENTITY()
-            var con = new SqlConnection(connection);
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId" +
-                " VALUES(@Name,@Surname,@Phone)", con))
-            {
-                
-                cmd.Parameters.AddWithValue("@Name", customer.Name);
-                cmd.Parameters.AddWithValue("@Surname", customer.Surname);
-                cmd.Parameters.AddWithValue("@Phone", customer.Phone);
-
                 con.Open();
+                query = ConfigurationManager.AppSettings.Get("view").ToString() + "WHERE [Booking].Emplyees_Id ='" + id + "'AND [Booking].Date LIKE '" + data + "%'OR [Booking].Emplyees_Id is Null ";
 
-                customer.CustomerId = (int)cmd.ExecuteScalar();
-
-                if (con.State == System.Data.ConnectionState.Open)
-                    con.Close();
-
-            }
-            uploadResult(customer, x);
-            MessageBox.Show("Dodanie pomyślne");
-            
+                using (var sda = new SqlDataAdapter(query, con))
+                {
+                    sda.Fill(dataTable);
+                    return dataTable;
+                }
+            }           
         }
-
 
         public DataTable viewData(Employees employees, string data)
         {

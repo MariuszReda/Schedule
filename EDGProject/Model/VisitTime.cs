@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EDGProject.Model
 {
-    public class VisitTime : Job
+    public class VisitTime
     {
         public int HourId { get; set; }
         public TimeSpan Time { get; set; }

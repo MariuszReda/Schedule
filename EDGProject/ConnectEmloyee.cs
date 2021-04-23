@@ -19,7 +19,6 @@ namespace EDGProject
         void Edit(Employees person);
     }
 
-
 /// <summary>
 /// This class connect DB for Employeers
 /// </summary>

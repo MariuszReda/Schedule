@@ -91,7 +91,7 @@ namespace EDGProject
             this.Add_button1.TabIndex = 0;
             this.Add_button1.Text = "Booking";
             this.Add_button1.UseVisualStyleBackColor = true;
-            this.Add_button1.Click += new System.EventHandler(this.Add_button1_Click);
+            this.Add_button1.Click += new System.EventHandler(this.Booking_button1_Click);
             // 
             // panel2
             // 
