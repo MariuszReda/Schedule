@@ -84,13 +84,28 @@ namespace EDGProject
             }           
         }
 
+        //public DataTable viewData(Employees employees, string data)
+        //{
+        //    DataTable dataTable = new DataTable();
+        //    using (var con = new SqlConnection(connection))
+        //    {
+        //        con.Open();
+        //        query = ConfigurationManager.AppSettings.Get("view").ToString() + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId +"'AND [Booking].Date LIKE '"+ data +"%'OR [Booking].Emplyees_Id is Null ";
+
+        //        using (var sda = new SqlDataAdapter(query, con))
+        //        {
+        //            sda.Fill(dataTable);
+        //            return dataTable;
+        //        }
+        //    }
+        //}
         public DataTable viewData(Employees employees, string data)
         {
             DataTable dataTable = new DataTable();
             using (var con = new SqlConnection(connection))
             {
                 con.Open();
-                query = ConfigurationManager.AppSettings.Get("view").ToString() + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId +"'AND [Booking].Date LIKE '"+ data +"%'OR [Booking].Emplyees_Id is Null ";
+                query = ConfigurationManager.AppSettings.Get("viewBasic").ToString();// + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId + "'AND [Booking].Date LIKE '" + data + "%'OR [Booking].Emplyees_Id is Null ";
 
                 using (var sda = new SqlDataAdapter(query, con))
                 {

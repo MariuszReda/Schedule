@@ -6,8 +6,8 @@
 
 	<connectionStrings>
 
-		<add name="defaultConnectionString" connectionString="Data Source=(LocalDB)\\MSSQLLocalDB;Integrated Security=True" />
-		<add name="salonConnectionString" connectionString="Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=Salon;Integrated Security=True" />
+		<add name="defaultConnectionString" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True" />
+		<add name="salonConnectionString" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=Salon;Integrated Security=True" />
 		
 		<add name="defaultConnectionString1" connectionString="Data Source=.;Integrated Security=True" />
 		<add name="salonConnectionString1" connectionString="Data Source=.;Initial Catalog=Salon;Integrated Security=True" />
@@ -62,8 +62,30 @@
 			CONSTRAINT [FK_Booking_Employees] FOREIGN KEY ([Emplyees_Id]) REFERENCES [dbo].[Employees] ([Employee_Id]),
 			CONSTRAINT [FK_Booking_Hour] FOREIGN KEY ([Hour_Id]) REFERENCES [dbo].[Hour] ([Hour_Id])
 			);
-		</add>
+			"
+		</add>'
+		
+		<add name="viewBasic">
+			value="with godz AS (
+			SELECT  Hour.Hour FROM HOUR
+			), wszystko
+			AS(
+			SELECT Hour,Employees.FirstName + ' ' + Employees.LastName AS [ Employee],Customer.FirstName + ' ' + Customer.LastName AS [Client] ,Job.Job as [Service], Booking.Date FROM Booking
+			right JOIN [Hour] ON [Hour].Hour_Id =Booking.Hour_Id
+			left join [Customer] ON [Booking].Customer_Id = [Customer].Client_Id
+			left join [Employees] ON [Booking].Emplyees_Id = [Employees].Employee_Id
+			left join [Job] ON [Booking].Job_Id = Job.Job_Id
 
+			WHERE  [Booking].Date = '2021-04-20' AND [Booking].Emplyees_Id =3 	OR [Booking].Emplyees_Id IS NULL
+			)
+			SELECT godz.*, wszystko.* FROM
+			godz left join wszystko ON godz.Hour = wszystko.Hour"
+		</add> 
+
+
+		
+		
+			
 	</queries>
 
 

@@ -24,7 +24,6 @@ namespace EDGProject
 /// </summary>
     public class ConnectEmloyee : IDBiConnect
     {
-
         private string connection = ConfigurationManager.ConnectionStrings["salonConnectionString"].ToString();
         private string query;
 

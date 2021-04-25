@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
+    
     public delegate string EventHandler();
 
     public partial class FormMainWindow : Form
