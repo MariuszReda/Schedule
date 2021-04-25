@@ -3,11 +3,23 @@
 #compilation instruction
 
 before compiling
-check settings in file App.config and set in connectionString your connection address to the your localDB
+check settings in file App.config and set in connectionString your connection address to the your local server
+insert your adresss with same name marker like below
+
+First adrress "defaultConnectionString" is for create DataBase
 ```cs
       <add name="defaultConnectionString" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;Integrated Security=True" />
+```      
+
+
+The second address "salonConnectionString" is used connected with already existing base
+
+```cs
       <add name="salonConnectionString" connectionString="Data Source=(LocalDB)\MSSQLLocalDB;Initial Catalog=Salon;Integrated Security=True" />
 ```
+
+
+
 The program is being improved, therefore it is not yet fully functional
 
 ```cs
