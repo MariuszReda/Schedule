@@ -18,3 +18,11 @@ program/obj/project.nuget.cache
 .vs/program/v16/.suo
 program.sln
 restore
+program/obj
+program/bin
+EDGProject/bin/Debug/EDGProject.exe
+EDGProject/bin/Debug/EDGProject.exe.config
+EDGProject/bin/Debug/EDGProject.pdb
+EDGProject/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+EDGProject/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+EDGProject/obj/Debug/EDGProject.csproj.FileListAbsolute.txt
