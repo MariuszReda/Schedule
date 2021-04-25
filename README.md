@@ -1,4 +1,12 @@
-# Schedule
+## Schedule
+
+#compilation instruction
+
+before compiling
+check settings in file App.config and set in connectionString your connection address to the your localDB
+
+The program is being improved, therefore it is not yet fully functional
+
 ```cs
 database Salon diagram
 ```
