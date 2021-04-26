@@ -3,8 +3,8 @@
 #compilation instruction
 
 before compiling
-check settings in file App.config and set in connectionString your connection address to the your local server
-insert your adresss with same name marker like below
+check settings in file App.config and set in connectionString your connection address to your local server,
+insert your adresss with same name marker like below.
 
 First adrress "defaultConnectionString" is for create DataBase
 ```cs
