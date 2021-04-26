@@ -24,6 +24,7 @@
 			)
 		</add>
 
+		
 		<add name ="Employees">
 			CREATE TABLE[dbo].[Employees](
 			[Employee_Id][int] PRIMARY KEY IDENTITY(1, 1) NOT NULL,
@@ -76,16 +77,11 @@
 			left join [Employees] ON [Booking].Emplyees_Id = [Employees].Employee_Id
 			left join [Job] ON [Booking].Job_Id = Job.Job_Id
 
-			WHERE  [Booking].Date = '2021-04-20' AND [Booking].Emplyees_Id =3 	OR [Booking].Emplyees_Id IS NULL
+			WHERE  [Booking].Date = <date>'2021-04-20'</date> AND [Booking].Emplyees_Id =<id_Emplo> 3 </id_Emplo>	OR [Booking].Emplyees_Id IS NULL
 			)
 			SELECT godz.*, wszystko.* FROM
 			godz left join wszystko ON godz.Hour = wszystko.Hour"
-		</add> 
-
-
-		
-		
-			
+		</add> 		
 	</queries>
 
 

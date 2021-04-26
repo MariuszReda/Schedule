@@ -1,6 +1,7 @@
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\bin\Debug\EDGProject.exe.config
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\bin\Debug\EDGProject.exe
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\bin\Debug\EDGProject.pdb
+C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.csprojAssemblyReference.cache
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormxAddEmployee.resources
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormSheduleWindow.resources
 C:\Users\mariu\Documents\GitHub\Schedule\EDGProject\obj\Debug\EDGProject.FormxAddClient.resources

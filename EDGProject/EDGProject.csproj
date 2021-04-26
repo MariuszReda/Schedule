@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectCustomer.cs" />
+    <Compile Include="FileDirection.cs" />
     <Compile Include="Model\Booking.cs" />
     <Compile Include="FormxAddEmployee.cs">
       <SubType>Form</SubType>

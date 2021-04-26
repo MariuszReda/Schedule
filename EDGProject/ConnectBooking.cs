@@ -1,14 +1,18 @@
 ﻿using EDGProject.Model;
+using SpotkajmySie.Classes;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 
 /*
@@ -51,7 +55,7 @@ namespace EDGProject
         //    using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId" +
         //        " VALUES(@FirstName,@LastName,@Phone)", con))
         //    {
-                
+
         //        cmd.Parameters.AddWithValue("@FirstName", customer.Name);
         //        cmd.Parameters.AddWithValue("@LastName", customer.Surname);
         //        cmd.Parameters.AddWithValue("@Phone", customer.Phone);
@@ -81,31 +85,20 @@ namespace EDGProject
                     sda.Fill(dataTable);
                     return dataTable;
                 }
-            }           
+            }
         }
 
-        //public DataTable viewData(Employees employees, string data)
-        //{
-        //    DataTable dataTable = new DataTable();
-        //    using (var con = new SqlConnection(connection))
-        //    {
-        //        con.Open();
-        //        query = ConfigurationManager.AppSettings.Get("view").ToString() + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId +"'AND [Booking].Date LIKE '"+ data +"%'OR [Booking].Emplyees_Id is Null ";
 
-        //        using (var sda = new SqlDataAdapter(query, con))
-        //        {
-        //            sda.Fill(dataTable);
-        //            return dataTable;
-        //        }
-        //    }
-        //}
+
         public DataTable viewData(Employees employees, string data)
         {
             DataTable dataTable = new DataTable();
+
             using (var con = new SqlConnection(connection))
             {
                 con.Open();
-                query = ConfigurationManager.AppSettings.Get("viewBasic").ToString();// + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId + "'AND [Booking].Date LIKE '" + data + "%'OR [Booking].Emplyees_Id is Null ";
+                query = ConfigurationManager.AppSettings.Get("viewBasic").ToString();
+                query = query.Replace("$BOOKING_DATE$", data).Replace("$EMPLOYEE_ID$", employees.EmployeeId.ToString());
 
                 using (var sda = new SqlDataAdapter(query, con))
                 {
@@ -133,7 +126,6 @@ namespace EDGProject
 //    MessageBox.Show("Usuwanie zakończone");
 //}
 
-
 //public void Edit(MCustomer person)
 //{
 //    using (var con = new SqlConnection(connection))
@@ -147,4 +139,20 @@ namespace EDGProject
 //        con.Close();
 //    }
 //    MessageBox.Show("Edycja zakończona");
+//}
+
+//public DataTable viewData(Employees employees, string data)
+//{
+//    DataTable dataTable = new DataTable();
+//    using (var con = new SqlConnection(connection))
+//    {
+//        con.Open();
+//        query = ConfigurationManager.AppSettings.Get("view").ToString() + "WHERE [Booking].Emplyees_Id ='" + employees.EmployeeId +"'AND [Booking].Date LIKE '"+ data +"%'OR [Booking].Emplyees_Id is Null ";
+
+//        using (var sda = new SqlDataAdapter(query, con))
+//        {
+//            sda.Fill(dataTable);
+//            return dataTable;
+//        }
+//    }
 //}

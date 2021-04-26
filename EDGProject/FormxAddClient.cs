@@ -22,7 +22,6 @@ namespace EDGProject
         }
 
 
-
         private void Add_button1_Click(object sender, EventArgs e)
         {
             ConnectCustomer connectCustomer = new ConnectCustomer();
