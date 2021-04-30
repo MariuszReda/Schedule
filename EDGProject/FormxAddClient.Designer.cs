@@ -79,9 +79,9 @@ namespace EDGProject
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Strzyżenie",
-            "Broda",
-            "Strzyżenie + Broda"});
+            "broda",
+            "wlosy",
+            "broda + wlosy"});
             this.comboBox1.Location = new System.Drawing.Point(73, 91);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(199, 24);
@@ -179,7 +179,7 @@ namespace EDGProject
             this.textBox3.Size = new System.Drawing.Size(199, 22);
             this.textBox3.TabIndex = 2;
             // 
-            // FormAddClient
+            // FormxAddClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -188,7 +188,7 @@ namespace EDGProject
             this.Location = new System.Drawing.Point(30, 30);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormAddClient";
+            this.Name = "FormxAddClient";
             this.Text = "FormAddClient";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

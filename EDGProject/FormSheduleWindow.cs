@@ -11,6 +11,7 @@ using EDGProject.Model;
 
 namespace EDGProject
 {
+    
     public partial class FormSheduleWindow : Form
     {
         public event EventHandler Handler;
@@ -23,13 +24,6 @@ namespace EDGProject
             InitializeComponent();
         }
 
-        private Employees pickEmployee()
-        {
-            string q = Handler?.Invoke();
-            ConnectEmloyee connect = new ConnectEmloyee();
-            return connect.GetEmplo(int.Parse(q));
-        }
-   
         private void Form1_Load(object sender, EventArgs e)
         {
             Employees employees = pickEmployee();
@@ -47,29 +41,30 @@ namespace EDGProject
             textBox6.Text = "";
         }
 
-        private void Booking_button1_Click(object sender, EventArgs e)
+        private void selectFirstRow()
         {
-            //Employees employees = pickEmployee();
-            //Booking booking = new Booking();
-            //booking.Name = textBox1.Text;
-            //booking.Surname = textBox2.Text;
-            //booking.Phone = textBox3.Text;
-            //booking.jobName = textBox4.Text;
-            //booking.Time = TimeSpan.Parse(textBox5.Text);
-            //booking.Date = DateTime.Parse(textBox6.Text);
-            //FormxAddClient form = new FormxAddClient(booking, employees.EmployeeId);
-            //form.StartPosition = FormStartPosition.CenterParent;
-            //form.ShowDialog();
-            //Employees employees = pickEmployee();
-
-            FormxAddClient form1 = new FormxAddClient();
-            form1.StartPosition = FormStartPosition.CenterParent;
-            
-            form1.ShowDialog();
-
+            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+            textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+            textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+            textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+            textBox5.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
         }
 
-        
+        private void Booking_button1_Click(object sender, EventArgs e)
+        {
+            FormxAddClient form1 = new FormxAddClient();
+            form1.StartPosition = FormStartPosition.CenterParent;           
+            form1.ShowDialog();
+            
+        }
+
+        private Employees pickEmployee()
+        {
+            string q = Handler?.Invoke();
+            ConnectEmloyee connect = new ConnectEmloyee();
+            return connect.GetEmplo(int.Parse(q));
+        }
+
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             clearText();
@@ -82,33 +77,29 @@ namespace EDGProject
 
         private void dataGridView1_MouseClick(object sender, MouseEventArgs e)
         {
-            textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-            textBox2.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
-            textBox3.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
-            textBox4.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-            textBox5.Text = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-        }
-        
-        //delet button
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
+            if(dataGridView1.Rows.Count != 0)
+                selectFirstRow();
         }
 
-        private void selectFirstRow()           
+        private void delete_button_Click(object sender, EventArgs e)
         {
-            //ConnectBooking connect = new ConnectBooking();
-            //Employees employees = pickEmployee();
-            //string dt = textBox6.Text;
-            //dataGridView1.DataSource = connect.viewData(employees, dt);
-            IEnumerable<string> list = dataGridView1.Rows
-                .OfType<DataGridViewRow>().Where(x => x.Cells[0].Value != null) 
-                .Select(x => x.Cells[0].Value.ToString())
-                .ToList();
 
-            textBox5.Text= list.First();
         }
     }
 }
 
 
+
+//BOOKING BUTTON CLCIK
+//Employees employees = pickEmployee();
+//Booking booking = new Booking();
+//booking.Name = textBox1.Text;
+//booking.Surname = textBox2.Text;
+//booking.Phone = textBox3.Text;
+//booking.jobName = textBox4.Text;
+//booking.Time = TimeSpan.Parse(textBox5.Text);
+//booking.Date = DateTime.Parse(textBox6.Text);
+//FormxAddClient form = new FormxAddClient(booking, employees.EmployeeId);
+//form.StartPosition = FormStartPosition.CenterParent;
+//form.ShowDialog();
+//Employees employees = pickEmployee();

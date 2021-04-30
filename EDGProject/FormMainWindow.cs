@@ -59,9 +59,7 @@ namespace EDGProject
         {
             //EventHandler handler = new EventHandler(IDEmployeeAfterClick);
             //FormSheduleWindow window = new FormSheduleWindow();
-            //window.Handler += handler;
-
-            //// zapisac ID który formularz do kogo nalezy
+            // zapisac ID który formularz do kogo nalezy
 
         }
 

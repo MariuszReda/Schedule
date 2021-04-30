@@ -53,8 +53,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectCustomer.cs" />
-    <Compile Include="FileDirection.cs" />
+    <Compile Include="DAL\ConnectCustomer.cs" />
+    <Compile Include="DAL\ConnectJob.cs" />
+    <Compile Include="DAL\ConnectVisitTime.cs" />
     <Compile Include="Model\Booking.cs" />
     <Compile Include="FormxAddEmployee.cs">
       <SubType>Form</SubType>
@@ -63,9 +64,9 @@
       <DependentUpon>FormxAddEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="Configuration\ConfigurationManagerWrapper.cs" />
-    <Compile Include="ConnectBooking.cs" />
+    <Compile Include="DAL\ConnectBooking.cs" />
     <Compile Include="Model\Customer.cs" />
-    <Compile Include="ConnectEmloyee.cs" />
+    <Compile Include="DAL\ConnectEmloyee.cs" />
     <Compile Include="FormSheduleWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,7 +86,7 @@
     <Compile Include="FormMainWindow.Designer.cs">
       <DependentUpon>FormMainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="DbSetUp.cs" />
+    <Compile Include="Configuration\DbSetUp.cs" />
     <Compile Include="Model\Job.cs" />
     <Compile Include="Model\VisitTime.cs" />
     <Compile Include="Program.cs" />

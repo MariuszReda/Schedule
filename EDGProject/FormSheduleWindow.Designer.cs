@@ -30,7 +30,7 @@ namespace EDGProject
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.delete_button = new System.Windows.Forms.Button();
             this.Add_button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
@@ -63,7 +63,7 @@ namespace EDGProject
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.delete_button);
             this.panel1.Controls.Add(this.Add_button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -72,15 +72,15 @@ namespace EDGProject
             this.panel1.Size = new System.Drawing.Size(122, 632);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // delete_button
             // 
-            this.button1.Location = new System.Drawing.Point(5, 54);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 38);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Usuń";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.delete_button.Location = new System.Drawing.Point(5, 54);
+            this.delete_button.Name = "delete_button";
+            this.delete_button.Size = new System.Drawing.Size(112, 38);
+            this.delete_button.TabIndex = 3;
+            this.delete_button.Text = "Usuń";
+            this.delete_button.UseVisualStyleBackColor = true;
+            this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
             // 
             // Add_button1
             // 
@@ -342,9 +342,9 @@ namespace EDGProject
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button delete_button;
     }
 }
 

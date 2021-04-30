@@ -1,5 +1,4 @@
 ﻿using EDGProject.Model;
-using SpotkajmySie.Classes;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,11 +13,6 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
-
-/*
- * NAPISZ PRECDURE DLA OPERACJI DODAWANIA JEDNOCZESNIE DWOCH OBIEKTOW DO ROZNYCH TABEL
- */
-
 namespace EDGProject
 {
     public class ConnectBooking
@@ -32,44 +26,17 @@ namespace EDGProject
         /// <param name="person"></param>
         /// <param name="c"></param>
         /// <param name="x"></param>
-        //public void uploadResult(Booking booking, int x )
+        //public void uploadResult()
         //{
         //    using (var con = new SqlConnection(connection))
         //    {
         //        con.Open();
-
-        //        string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" + booking.Date +"','" + booking.HourId +
+        //        string query = "INSERT INTO Booking (Date, Hour, JobID, CustomerID, EmplyeesID) VALUES ('" + booking.Date + "','" + booking.HourId +
         //            "','" + booking.JobId + "','" + booking.CustomerId + "','" + booking.EmplyeesId + "')";
         //        var cmd = new SqlCommand(query, con);
         //        cmd.ExecuteNonQuery();
         //        con.Close();
         //    }
-        //}
-
-
-        //public void Add(Booking customer, int x)
-        //{
-        //    //, int x
-        //    //@ID = SCOPE_IDENTITY()
-        //    var con = new SqlConnection(connection);
-        //    using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.ClientId" +
-        //        " VALUES(@FirstName,@LastName,@Phone)", con))
-        //    {
-
-        //        cmd.Parameters.AddWithValue("@FirstName", customer.Name);
-        //        cmd.Parameters.AddWithValue("@LastName", customer.Surname);
-        //        cmd.Parameters.AddWithValue("@Phone", customer.Phone);
-
-        //        con.Open();
-
-        //        customer.CustomerId = (int)cmd.ExecuteScalar();
-
-        //        if (con.State == System.Data.ConnectionState.Open)
-        //            con.Close();
-
-        //    }
-        //    //uploadResult(customer, x);
-        //    MessageBox.Show("Dodanie pomyślne");          
         //}
 
         public DataTable viewData(string id, string data)
