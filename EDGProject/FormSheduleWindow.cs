@@ -15,6 +15,7 @@ namespace EDGProject
     public partial class FormSheduleWindow : Form
     {
         public event EventHandler Handler;
+
         public FormSheduleWindow(DataTable data)
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace EDGProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Employees employees = pickEmployee();
+            Employees employees = Handler?.Invoke();
             string info = employees.Name + " " + employees.Surname;
             uzytkowniktoolStripStatusLabel1.Text = info;
         }
@@ -52,17 +53,10 @@ namespace EDGProject
 
         private void Booking_button1_Click(object sender, EventArgs e)
         {
-            FormxAddClient form1 = new FormxAddClient();
+            FormxAddClient form1 = new FormxAddClient(Handler?.Invoke(),textBox5.Text, DateTime.Parse(textBox6.Text));
             form1.StartPosition = FormStartPosition.CenterParent;           
             form1.ShowDialog();
             
-        }
-
-        private Employees pickEmployee()
-        {
-            string q = Handler?.Invoke();
-            ConnectEmloyee connect = new ConnectEmloyee();
-            return connect.GetEmplo(int.Parse(q));
         }
 
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
@@ -71,7 +65,7 @@ namespace EDGProject
             textBox6.Text = e.Start.ToString("dd-MM-yyyy");
             string dt = textBox6.Text;
             ConnectBooking connect = new ConnectBooking();
-            dataGridView1.DataSource = connect.viewData(pickEmployee(), e.Start.ToString("yyyy-MM-dd"));
+            dataGridView1.DataSource = connect.viewData(Handler?.Invoke(),e.Start.ToString("yyyy-MM-dd"));
             selectFirstRow();
         }
 
@@ -83,23 +77,24 @@ namespace EDGProject
 
         private void delete_button_Click(object sender, EventArgs e)
         {
+            DialogResult dialog = MessageBox.Show("Are you sure?", "Do you whant remove", MessageBoxButtons.OKCancel);
+            if (dialog == DialogResult.OK)
+            {
+                ConnectBooking connectBooking = new ConnectBooking();
+                var list = connectBooking.getAllBookings();
+                ConnectVisitTime connectVisit = new ConnectVisitTime();
+                var timeList = connectVisit.getAllTime();
+                Booking booking = new Booking();
+                VisitTime visitTime = new VisitTime();
+                var n = timeList.Where(x => x != null && x.Time == TimeSpan.Parse(textBox5.Text)).FirstOrDefault();
 
+                booking = list.Where(x =>
+                    x.EmplyeesId == Handler?.Invoke().EmployeeId
+                        && x.HourId == n.HourId
+                        && x.Date == DateTime.Parse(textBox6.Text)).FirstOrDefault();
+                            
+                connectBooking.deleteBooking(booking);
+            }
         }
     }
 }
-
-
-
-//BOOKING BUTTON CLCIK
-//Employees employees = pickEmployee();
-//Booking booking = new Booking();
-//booking.Name = textBox1.Text;
-//booking.Surname = textBox2.Text;
-//booking.Phone = textBox3.Text;
-//booking.jobName = textBox4.Text;
-//booking.Time = TimeSpan.Parse(textBox5.Text);
-//booking.Date = DateTime.Parse(textBox6.Text);
-//FormxAddClient form = new FormxAddClient(booking, employees.EmployeeId);
-//form.StartPosition = FormStartPosition.CenterParent;
-//form.ShowDialog();
-//Employees employees = pickEmployee();

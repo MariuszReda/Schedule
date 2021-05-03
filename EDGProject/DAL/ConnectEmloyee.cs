@@ -159,9 +159,7 @@ namespace EDGProject
                     con.Close();
                     return person;
                 }
-            }
-          
+            }         
         }
-
     }
 }

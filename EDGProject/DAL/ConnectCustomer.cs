@@ -17,7 +17,6 @@ namespace EDGProject
 
         public int add_Customer(Customer person)
         {
-
             var con = new SqlConnection(connection);
             using (SqlCommand cmd = new SqlCommand("INSERT INTO Customer(FirstName, LastName, Phone) output INSERTED.Client_Id" +
                 " VALUES(@FirstName,@LastName,@Phone)", con))
@@ -35,8 +34,47 @@ namespace EDGProject
                 }
             
             MessageBox.Show("Dodanie pomyślne");
-
             return person.CustomerId;
+        }
+
+        public void editBooking(Customer customer)
+        {
+            //using (var con = new SqlConnection(connection))
+            //{
+            //    con.Open();
+            //    query = "UPDATE Employees SET FirstName = '"
+            //        + .CustName + "', LastName = '" + person.CustSurname + "', LastName = '" + person.CustPhone +
+            //        "'  WHERE EmplyeeID ='" + person.CustId + "'";
+            //    var cmd = new SqlCommand(query, con);
+            //    cmd.ExecuteNonQuery();
+            //    con.Close();
+            //}
+            //MessageBox.Show("Edycja zakończona");
+        }
+
+        public List<Customer> getAllCustomer()
+        {
+            using(var con = new SqlConnection(connection))
+            {
+                con.Open();
+                query = "SELECT * FROM Customer";
+                using(var cmd = new SqlCommand(query,con))
+                {
+                    var reader = cmd.ExecuteReader();
+                    var list = new List<Customer>();
+                    while(reader.Read())
+                    {
+                        list.Add(new Customer
+                        {
+                            CustomerId = reader.GetInt32(0),
+                            Name = reader.GetString(1),
+                            Surname = reader.GetString(2),
+                            Phone = reader.GetString(3)
+                        });
+                    }
+                    return list;
+                }
+            }
 
         }
     }

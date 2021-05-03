@@ -11,9 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EDGProject
-{
-    
-    public delegate string EventHandler();
+{   
+    public delegate Employees EventHandler();
 
     public partial class FormMainWindow : Form
     {
@@ -60,7 +59,6 @@ namespace EDGProject
             //EventHandler handler = new EventHandler(IDEmployeeAfterClick);
             //FormSheduleWindow window = new FormSheduleWindow();
             // zapisac ID który formularz do kogo nalezy
-
         }
 
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -86,24 +84,34 @@ namespace EDGProject
                 contextMenuStrip1.Show(Cursor.Position);
                 sender = Emplo_treeView.SelectedNode.IsSelected;
             }
-        }       
+        }
 
+        FormSheduleWindow window1;
         private void Emplo_treeView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             EventHandler handler = new EventHandler(IDEmployeeAfterClick);
             ConnectBooking connect = new ConnectBooking();
-            
-            FormSheduleWindow window1 = new FormSheduleWindow(connect.viewData(IDEmployeeAfterClick(), DateTime.Now.ToString()));
-            window1.Handler += handler;
-            window1.MdiParent = this;
-            window1.Show();
+            if (window1 == null)
+            {
+                window1 = new FormSheduleWindow(connect.viewData(IDEmployeeAfterClick(), DateTime.Now.ToString()));
+                window1.Handler += handler;
+                window1.FormClosed += FormSheduleWindow_Close;
+                window1.MdiParent = this;
+                window1.Show();
+            }
             GC.Collect();
         }
 
-        private string IDEmployeeAfterClick()
+        private void FormSheduleWindow_Close(object sender, FormClosedEventArgs e)
+        {
+            window1 = null;
+        }
+
+        private Employees IDEmployeeAfterClick()
         {
             string x = Emplo_treeView.SelectedNode.Name;
-            return x;
+            ConnectEmloyee connect = new ConnectEmloyee();
+            return connect.GetEmplo(int.Parse(x));
         }
 
         /// <summary>

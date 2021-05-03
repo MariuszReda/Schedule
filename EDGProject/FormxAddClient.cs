@@ -11,30 +11,30 @@ using System.Windows.Forms;
 
 namespace EDGProject
 {
+    
     public partial class FormxAddClient : Form
     {
+
         public FormxAddClient()
         {
             InitializeComponent();
         }
-        public FormxAddClient(int x)
+
+        public FormxAddClient(Employees employee,string time, DateTime date)
         {
             InitializeComponent();
-            Employee_id = x;
+            this._employee = employee;
+            dateTimePicker1.Value = date;
+            textBox6.Text = time;
         }
-
-        private int _employeeId;
-        public int Employee_id
-        {
-            get => _employeeId;
-            set => _employeeId = value; 
-        }
+        private Employees _employee;
 
         private void Add_button1_Click(object sender, EventArgs e)
         {
             ConnectCustomer connectCustomer = new ConnectCustomer();
             var customer = new Customer { Name = textBox1.Text, Surname = textBox2.Text, Phone = textBox3.Text };
             var id_customer = connectCustomer.add_Customer(customer);
+            
 
             var connectJob = new ConnectJob();
             var listOfJob = connectJob.getAllJobs();
@@ -44,18 +44,31 @@ namespace EDGProject
             var listOfTime = connectTime.getAllTime();
             var id_time = listOfTime.Where(c => c != null && c.Time == TimeSpan.Parse(textBox6.Text)).FirstOrDefault();
 
-
+            
             ConnectBooking connectBooking = new ConnectBooking();
             Booking booking = new Booking();
             booking.CustomerId = id_customer;
             booking.JobId = id_job.JobId;
             booking.HourId = id_time.HourId;
             booking.Date = dateTimePicker1.Value;
-            booking.EmplyeesId = Employee_id;
+            booking.EmplyeesId = _employee.EmployeeId;
+
+
+            if (String.IsNullOrEmpty(textBox1.Text) || String.IsNullOrEmpty(textBox2.Text))
+                connectBooking.addBooking(booking);
+            else
+            {
+                var listOfCustomer = connectCustomer.getAllCustomer();
+                //customer.CustomerId = listOfCustomer.Where(x=> )
+            }
+                
 
         }
+
     }    
 }
+
+
 //var vistTime = new VisitTime();
 //vistTime.Time = TimeSpan.Parse(textBox6.Text);
 
@@ -80,10 +93,6 @@ namespace EDGProject
 //}
 //else
 //    MessageBox.Show("Uzupełnij dane", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
-
-
 
 
 //public FormxAddClient(Booking booking, int x)

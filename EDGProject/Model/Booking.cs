@@ -24,6 +24,9 @@ namespace EDGProject.Model
         public int CustomerId { get; set; }
         public int EmplyeesId { get; set; }
         public int JobId { get; set; }
+
     }
+
+    
 }
 
