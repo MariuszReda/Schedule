@@ -131,7 +131,7 @@ namespace EDGProject
             this.Emplo_treeView.Name = "Emplo_treeView";
             this.Emplo_treeView.Size = new System.Drawing.Size(191, 422);
             this.Emplo_treeView.TabIndex = 6;
-            this.Emplo_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Emplo_treeView_AfterSelect);
+            this.Emplo_treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.Emplo_treeView_AfterSelect_1);
             this.Emplo_treeView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.mauseClick);
             this.Emplo_treeView.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Emplo_treeView_MouseDoubleClick);
             // 

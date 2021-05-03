@@ -15,6 +15,7 @@ namespace EDGProject
     public partial class FormSheduleWindow : Form
     {
         public event EventHandler Handler;
+        public Employees employee;
 
         public FormSheduleWindow(DataTable data)
         {
@@ -27,8 +28,8 @@ namespace EDGProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Employees employees = Handler?.Invoke();
-            string info = employees.Name + " " + employees.Surname;
+            employee = Handler?.Invoke();
+            string info = employee.Name + " " + employee.Surname;
             uzytkowniktoolStripStatusLabel1.Text = info;
         }
 
@@ -95,6 +96,14 @@ namespace EDGProject
                             
                 connectBooking.deleteBooking(booking);
             }
+        }
+
+        public delegate void ScheduleWindowClose(Employees employee);
+        public event ScheduleWindowClose OnScheduleWindowClosed;
+
+        private void FormSheduleWindow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            OnScheduleWindowClosed(employee);
         }
     }
 }

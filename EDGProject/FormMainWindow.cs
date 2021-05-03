@@ -17,7 +17,7 @@ namespace EDGProject
     public partial class FormMainWindow : Form
     {
         
-        List<Employees> emplos = new List<Employees>();
+        List<Employees> listOfEmployees = new List<Employees>();
 
         public FormMainWindow()
         {
@@ -50,15 +50,13 @@ namespace EDGProject
                 int x = item.EmployeeId;    //ref to ID in database
                 string person = item.Name + " " + item.Surname;
                 Emplo_treeView.Nodes.Add(x.ToString(), person);
-                emplos.Add(item);   //add to list Emplo all object Emplo
+                listOfEmployees.Add(item);   //add to list Emplo all object Emplo
             }
         }
-
+        
         private void Emplo_treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            //EventHandler handler = new EventHandler(IDEmployeeAfterClick);
-            //FormSheduleWindow window = new FormSheduleWindow();
-            // zapisac ID który formularz do kogo nalezy
+            openedSheduleWindows.Where(w => w.employee.EmployeeId == IDEmployeeAfterClick().EmployeeId).FirstOrDefault().Activate();
         }
 
         private void usuńToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -86,25 +84,37 @@ namespace EDGProject
             }
         }
 
+        List<FormSheduleWindow> openedSheduleWindows = new List<FormSheduleWindow>();
+        List<Employees> openedEmployees = new List<Employees>();
+        List<Employees> result;
+        //HashSet<int> openedEmployess =new HashSet<int>();
         FormSheduleWindow window1;
         private void Emplo_treeView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             EventHandler handler = new EventHandler(IDEmployeeAfterClick);
             ConnectBooking connect = new ConnectBooking();
-            if (window1 == null)
+
+            Employees openedEmployee = IDEmployeeAfterClick();
+
+            if (openedEmployees.Where(em => em.EmployeeId == openedEmployee.EmployeeId).FirstOrDefault() != null)
             {
-                window1 = new FormSheduleWindow(connect.viewData(IDEmployeeAfterClick(), DateTime.Now.ToString()));
+                return;
+            }
+            else
+            {
+                openedEmployees.Add(openedEmployee);
+                window1 = new FormSheduleWindow(connect.viewData(openedEmployee, DateTime.Now.ToString()));
+                openedSheduleWindows.Add(window1);
+                window1.OnScheduleWindowClosed += OnEmployeeFormClosed;
                 window1.Handler += handler;
-                window1.FormClosed += FormSheduleWindow_Close;
                 window1.MdiParent = this;
                 window1.Show();
             }
-            GC.Collect();
         }
 
-        private void FormSheduleWindow_Close(object sender, FormClosedEventArgs e)
+        private void OnEmployeeFormClosed(Employees emploee)
         {
-            window1 = null;
+            openedEmployees.Remove(openedEmployees.Where(e => e.EmployeeId == emploee.EmployeeId).FirstOrDefault());
         }
 
         private Employees IDEmployeeAfterClick()
@@ -129,5 +139,14 @@ namespace EDGProject
             form.ShowDialog();
             LoadEmp();
         }
+
+        private void Emplo_treeView_AfterSelect_1(object sender, TreeViewEventArgs e)
+        {
+            FormSheduleWindow window = openedSheduleWindows.Where(w => w.employee.EmployeeId == IDEmployeeAfterClick().EmployeeId).FirstOrDefault();
+            if (window != null)
+                window.Activate();
+
+        }
     }
+
 }
